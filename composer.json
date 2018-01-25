@@ -1,0 +1,10 @@
+{
+    "name": "root/lara-cms",
+    "authors": [
+        {
+            "name": "Armand Grundmanis",
+            "email": "agrundmanis@inbox.lv"
+        }
+    ],
+    "require": {}
+}
