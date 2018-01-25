@@ -23,6 +23,6 @@ class LaracmsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        include __DIR__.'/../Http/cms_routes.php';
+        include __DIR__.'/../Http/laracms_routes.php';
     }
 }
