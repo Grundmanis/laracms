@@ -1,11 +1,11 @@
 <?php
 
-namespace Grundweb\Laracms\Middleware;
+namespace Grundweb\Laracms\Modules\User\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class LaracmsRedirectIfAuthenticated
+class LaracmsRedirectIfNotAuthenticated
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,8 @@ class LaracmsRedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard('laracms')->check()) {
-            return redirect('/laracms');
+        if (!Auth::guard('laracms')->check()) {
+            return redirect('/laracms/login');
         }
         return $next($request);
     }

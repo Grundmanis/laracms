@@ -1,6 +1,6 @@
 <?php
 
-namespace Grundweb\Laracms\Middleware;
+namespace Grundweb\Laracms\Modules\User\Middleware;
 
 use Closure;
 use Illuminate\Auth\AuthenticationException;

@@ -8,11 +8,11 @@ class ContentController extends Controller
 {
     public function index()
     {
-        return view('laracms::pages.content.index');
+        return view('laracms.content::index');
     }
 
     public function edit()
     {
-        return view('laracms::pages.content.edit');
+        return view('laracms.content::edit');
     }
 }

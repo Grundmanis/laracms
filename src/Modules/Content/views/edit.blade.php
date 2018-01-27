@@ -1,4 +1,4 @@
-@extends('laracms::layouts.app')
+@extends('laracms::app')
 
 @section('styles')
 

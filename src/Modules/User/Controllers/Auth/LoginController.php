@@ -36,7 +36,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('laracms::pages.login');
+        return view('laracms.user::login');
     }
 
     /**
