@@ -1,6 +1,6 @@
 <?php
 
-namespace Grundweb\Laracms\Http\Controllers\Auth;
+namespace Grundweb\Laracms\Modules\User\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
