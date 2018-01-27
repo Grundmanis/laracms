@@ -5,7 +5,7 @@ namespace Grundweb\Laracms\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class AdminRedirectIfAuthenticated
+class LaracmsRedirectIfAuthenticated
 {
     /**
      * Handle an incoming request.

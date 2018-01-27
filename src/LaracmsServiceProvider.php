@@ -1,7 +1,10 @@
 <?php
 
-namespace Grundweb\Laracms\Providers;
+namespace Grundweb\Laracms;
 
+use Grundweb\Laracms\Middleware\LaracmsRedirectIfAuthenticated;
+use Grundweb\Laracms\Middleware\LaracmsRedirectIfNotAuthenticated;
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
 class LaracmsServiceProvider extends ServiceProvider
@@ -11,9 +14,12 @@ class LaracmsServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Router $router)
     {
-        $this->loadViewsFrom(__DIR__.'/../views', 'laracms');
+        $router->aliasMiddleware('laracms.auth', LaracmsRedirectIfNotAuthenticated::class);
+        $router->aliasMiddleware('laracms.guest', LaracmsRedirectIfAuthenticated::class);
+
+        $this->loadViewsFrom(__DIR__.'/views', 'laracms');
     }
 
     /**
@@ -23,6 +29,6 @@ class LaracmsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        include __DIR__.'/../Http/laracms_routes.php';
+        include __DIR__.'/laracms_routes.php';
     }
 }
