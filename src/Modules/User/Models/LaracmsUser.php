@@ -1,6 +1,6 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\User;
+namespace Grundweb\Laracms\Modules\User\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

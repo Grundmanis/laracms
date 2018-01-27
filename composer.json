@@ -6,5 +6,7 @@
             "email": "agrundmanis@inbox.lv"
         }
     ],
-    "require": {}
+    "require": {
+        "dimsav/laravel-translatable": "^8.0"
+    }
 }

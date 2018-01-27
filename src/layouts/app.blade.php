@@ -53,11 +53,28 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li @if (request()->is('laracms')) class="active" @endif ><a href="{{ route('laracms') }}">Overview <span class="sr-only">(current)</span></a></li>
-                <li @if (request()->is('laracms/content*')) class="active" @endif><a href="{{ route('laracms.content') }}">Content</a></li>
+                <li {{ activeRoute('laracms') }} >
+                    <a href="{{ route('laracms') }}">
+                        Overview
+                    </a>
+                </li>
+                <li {{ activeRoute('laracms/content*') }}>
+                    <a href="{{ route('laracms.content') }}">
+                        Content
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            @include('laracms.breadcrumbs::links')
+
             @yield('content')
         </div>
     </div>
