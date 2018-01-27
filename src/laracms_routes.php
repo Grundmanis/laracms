@@ -16,8 +16,11 @@ Route::group([
     Route::group([
         'middleware' => 'laracms.auth',
     ], function () {
+        Route::get('/', 'Dashboard\Controllers\DashboardController@index')->name('laracms');
         Route::get('logout', 'User\Controllers\Auth\LoginController@logout')->name('laracms.logout');
-        Route::get('/', 'Dashboard\Controllers\DashboardController@index');
+
+        Route::get('content', 'Content\Controllers\ContentController@index')->name('laracms.content');
+        Route::get('content/edit/{content}', 'Content\Controllers\ContentController@edit')->name('laracms.content.edit');
     });
 
 });
