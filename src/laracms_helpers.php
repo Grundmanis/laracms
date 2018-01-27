@@ -27,3 +27,11 @@ if (! function_exists('activeRoute'))
         return '';
     }
 }
+
+if (! function_exists('content'))
+{
+    function content($slug, $locale = null)
+    {
+        return Content::get($slug, $locale);
+    }
+}

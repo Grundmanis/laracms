@@ -44,6 +44,8 @@ class LaracmsServiceProvider extends ServiceProvider
         include __DIR__.'/Modules/Dashboard/laracms_routes.php';
         include __DIR__.'/Modules/User/laracms_user_routes.php';
         include __DIR__.'/Modules/Content/laracms_content_routes.php';
+
+        $this->app->bind('Content', Modules\Content\Content::class);
     }
 
     /**

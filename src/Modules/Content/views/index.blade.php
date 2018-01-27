@@ -5,6 +5,7 @@
     <div class="form-group">
         <a class="btn btn-success" href="{{ route('laracms.content.create') }}">Create</a>
     </div>
+
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>

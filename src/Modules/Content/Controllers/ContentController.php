@@ -29,7 +29,7 @@ class ContentController extends Controller
     public function index()
     {
         $contents = LaracmsContent::paginate(10);
-        return view('laracms.content::index', compact('contents'));
+        return view('laracms.content::index', compact('contents', 'test'));
     }
 
     /**
