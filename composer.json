@@ -1,6 +1,7 @@
 {
     "name": "grundmanis/laracms",
     "description": "Laravel cms",
+    "keywords": ["laravel", "cms", "admin", "dashboard", "panel"],
     "license": "MIT",
     "authors": [
         {
@@ -13,5 +14,10 @@
         "dimsav/laravel-translatable": "^8.0",
         "php": ">=7.0.0",
         "laravel/framework": "5.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Grundmanis\\Laracms\\": "src/"
+        }
     }
 }
