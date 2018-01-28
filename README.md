@@ -1,7 +1,7 @@
 #Lara CMS
 This is the Content Management System on Laravel 5.5, made for fun.
 
-<p align="center"><img src="https://drive.google.com/file/d/1JrBPlUS-5CvTDV-7EmVpe15BevzIjNZf/view?usp=drivesdk"></p>
+<p align="center"><img src="http://screenshotlink.ru/c2b436b8225743cce450feebe8221fd2.png"></p>
 
 ## Installation
 * Register service provider `Grundweb\Laracms\LaracmsServiceProvider::class` in `config/app.php` providers array
