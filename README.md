@@ -13,6 +13,8 @@ login: admin@laracms.com
 password: secret
 ```
 
+In blade files, use `Content::get($slug, $locale = null)` or helper `content($slug, $locale = null)`
+
 ## Installation
 In `config/app.php` **providers** array register laracms service provider:
 ```
