@@ -31,7 +31,7 @@ class LaracmsServiceProvider extends ServiceProvider
     /**
      * Register helpers
      */
-    public function bootHelpers()
+    private function bootHelpers()
     {
         // Load the helpers in app/Http/helpers.php
         if (file_exists($file = __DIR__.'/laracms_helpers.php'))
@@ -59,7 +59,7 @@ class LaracmsServiceProvider extends ServiceProvider
      *
      * Load module route if exist
      * @param $moduleFolder
-     * @param $directory
+     * @param $moduleName
      */
     private function loadModuleRoute($moduleFolder, $moduleName) {
         if (File::exists($route = $moduleFolder . '/laracms_' . $moduleName . '_routes.php'))

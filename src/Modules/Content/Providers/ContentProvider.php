@@ -2,7 +2,6 @@
 
 namespace Grundweb\Laracms\Modules\Content\Providers;
 
-use Grundweb\Laracms\Modules\Breadcrumbs\ViewComposers\BreadcrumbsComposer;
 use Grundweb\Laracms\Modules\Content\Content;
 use Illuminate\Support\ServiceProvider;
 

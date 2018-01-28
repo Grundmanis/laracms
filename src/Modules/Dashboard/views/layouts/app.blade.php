@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li {{ activeRoute('laracms/users*') }}>
-                    <a href="#">
+                    <a href="{{ route('laracms.users') }}">
                         Users
                     </a>
                 </li>
