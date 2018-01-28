@@ -16,7 +16,7 @@ This is the Content Management System on Laravel 5.5, made for fun.
 ```
     'laracms_users' => [
             'driver' => 'eloquent',
-            'model' => \Grundmanis\Laracms\Modules\User\LaracmsUser::class,
+            'model' => \Grundmanis\Laracms\Modules\User\Models\LaracmsUser::class,
         ],
 ```
 ## How to use
