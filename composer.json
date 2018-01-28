@@ -7,6 +7,8 @@
         }
     ],
     "require": {
-        "dimsav/laravel-translatable": "^8.0"
+        "dimsav/laravel-translatable": "^8.0",
+        "php": ">=7.0.0",
+        "laravel/framework": "5.5.*"
     }
 }
