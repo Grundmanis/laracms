@@ -1,6 +1,6 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\Content\Models;
+namespace Grundmanis\Laracms\Modules\Content\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

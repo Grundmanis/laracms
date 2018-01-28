@@ -1,9 +1,9 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\Content\Providers;
+namespace Grundmanis\Laracms\Modules\Content\Providers;
 
-use Grundweb\Laracms\Modules\Content\Content;
-use Grundweb\Laracms\Modules\Content\Facades\ContentFacade;
+use Grundmanis\Laracms\Modules\Content\Content;
+use Grundmanis\Laracms\Modules\Content\Facades\ContentFacade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 

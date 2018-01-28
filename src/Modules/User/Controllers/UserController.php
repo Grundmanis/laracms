@@ -1,9 +1,9 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\User\Controllers;
+namespace Grundmanis\Laracms\Modules\User\Controllers;
 
 use App\Http\Controllers\Controller;
-use Grundweb\Laracms\Modules\User\Models\LaracmsUser;
+use Grundmanis\Laracms\Modules\User\Models\LaracmsUser;
 
 class UserController extends Controller
 {

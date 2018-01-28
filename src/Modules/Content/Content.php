@@ -1,8 +1,8 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\Content;
+namespace Grundmanis\Laracms\Modules\Content;
 
-use Grundweb\Laracms\Modules\Content\Models\LaracmsContent;
+use Grundmanis\Laracms\Modules\Content\Models\LaracmsContent;
 
 class Content
 {

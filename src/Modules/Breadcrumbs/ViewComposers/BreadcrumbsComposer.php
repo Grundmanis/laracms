@@ -1,8 +1,8 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\Breadcrumbs\ViewComposers;
+namespace Grundmanis\Laracms\Modules\Breadcrumbs\ViewComposers;
 
-use Grundweb\Laracms\Modules\Breadcrumbs\BreadcrumbGenerator;
+use Grundmanis\Laracms\Modules\Breadcrumbs\BreadcrumbGenerator;
 use Illuminate\View\View;
 
 class BreadcrumbsComposer

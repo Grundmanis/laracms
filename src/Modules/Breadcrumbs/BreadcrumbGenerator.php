@@ -1,6 +1,6 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\Breadcrumbs;
+namespace Grundmanis\Laracms\Modules\Breadcrumbs;
 
 use Illuminate\Support\Facades\Request;
 

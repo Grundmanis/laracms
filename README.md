@@ -4,7 +4,7 @@ This is the Content Management System on Laravel 5.5, made for fun.
 ![larcms dashboard](https://user-images.githubusercontent.com/6103997/35482156-c64ad344-0439-11e8-9972-db1f9c9c89b4.png)
 
 ## Installation
-* Register service provider `Grundweb\Laracms\LaracmsServiceProvider::class` in `config/app.php` providers array
+* Register service provider `Grundmanis\Laracms\LaracmsServiceProvider::class` in `config/app.php` providers array
 * Add new guard in `config/auth.php`: 
 ```
 'laracms' => [
@@ -16,7 +16,7 @@ This is the Content Management System on Laravel 5.5, made for fun.
 ```
     'laracms_users' => [
             'driver' => 'eloquent',
-            'model' => \Grundweb\Laracms\Modules\User\LaracmsUser::class,
+            'model' => \Grundmanis\Laracms\Modules\User\LaracmsUser::class,
         ],
 ```
 ## How to use

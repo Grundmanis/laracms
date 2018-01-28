@@ -1,6 +1,6 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\Content\Facades;
+namespace Grundmanis\Laracms\Modules\Content\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

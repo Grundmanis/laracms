@@ -1,10 +1,10 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\Content\Controllers;
+namespace Grundmanis\Laracms\Modules\Content\Controllers;
 
 use App\Http\Controllers\Controller;
-use Grundweb\Laracms\Modules\Content\Models\LaracmsContent;
-use Grundweb\Laracms\Modules\Content\Requests\ContentRequest;
+use Grundmanis\Laracms\Modules\Content\Models\LaracmsContent;
+use Grundmanis\Laracms\Modules\Content\Requests\ContentRequest;
 
 class ContentController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\Content\Requests;
+namespace Grundmanis\Laracms\Modules\Content\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;

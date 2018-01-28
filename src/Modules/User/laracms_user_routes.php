@@ -2,7 +2,7 @@
 
 Route::group([
     'middleware' => 'web',
-    'namespace'  => 'Grundweb\Laracms\Modules\User\Controllers',
+    'namespace'  => 'Grundmanis\Laracms\Modules\User\Controllers',
     'prefix'     => 'laracms'
 ], function () {
 

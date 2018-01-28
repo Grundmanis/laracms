@@ -1,6 +1,6 @@
 <?php
 
-namespace Grundweb\Laracms;
+namespace Grundmanis\Laracms;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;

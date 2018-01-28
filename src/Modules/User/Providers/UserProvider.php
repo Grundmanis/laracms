@@ -1,9 +1,9 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\User\Providers;
+namespace Grundmanis\Laracms\Modules\User\Providers;
 
-use Grundweb\Laracms\Modules\User\Middleware\LaracmsRedirectIfAuthenticated;
-use Grundweb\Laracms\Modules\User\Middleware\LaracmsRedirectIfNotAuthenticated;
+use Grundmanis\Laracms\Modules\User\Middleware\LaracmsRedirectIfAuthenticated;
+use Grundmanis\Laracms\Modules\User\Middleware\LaracmsRedirectIfNotAuthenticated;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 

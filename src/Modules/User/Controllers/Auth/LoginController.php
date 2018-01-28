@@ -1,6 +1,6 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\User\Controllers\Auth;
+namespace Grundmanis\Laracms\Modules\User\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;

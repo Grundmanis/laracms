@@ -1,6 +1,6 @@
 <?php
 
-namespace Grundweb\Laracms\Modules\Dashboard\Controllers;
+namespace Grundmanis\Laracms\Modules\Dashboard\Controllers;
 
 use App\Http\Controllers\Controller;
 
