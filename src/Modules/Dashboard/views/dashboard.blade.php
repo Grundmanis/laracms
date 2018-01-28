@@ -1,4 +1,4 @@
-@extends('laracms::app')
+@extends('laracms.dashboard::layouts.app')
 
 @section('content')
     <h1 class="page-header">Dashboard</h1>

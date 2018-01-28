@@ -2,10 +2,7 @@
 
 namespace Grundweb\Laracms;
 
-use Grundweb\Laracms\Modules\Breadcrumbs\ViewComposers\BreadcrumbsComposer;
-use Grundweb\Laracms\Modules\User\Middleware\LaracmsRedirectIfAuthenticated;
-use Grundweb\Laracms\Modules\User\Middleware\LaracmsRedirectIfNotAuthenticated;
-use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 
 class LaracmsServiceProvider extends ServiceProvider
@@ -15,23 +12,10 @@ class LaracmsServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(Router $router)
+    public function boot()
     {
-        $this->registerHelpers();
-
-        $router->aliasMiddleware('laracms.auth', LaracmsRedirectIfNotAuthenticated::class);
-        $router->aliasMiddleware('laracms.guest', LaracmsRedirectIfAuthenticated::class);
-
-        $this->loadViewsFrom(__DIR__.'/layouts', 'laracms');
-        $this->loadViewsFrom(__DIR__.'/Modules/User/views', 'laracms.user');
-        $this->loadViewsFrom(__DIR__.'/Modules/Dashboard/views', 'laracms.dashboard');
-        $this->loadViewsFrom(__DIR__.'/Modules/Content/views', 'laracms.content');
-        $this->loadViewsFrom(__DIR__.'/Modules/Breadcrumbs/views', 'laracms.breadcrumbs');
-
-        $this->loadMigrationsFrom(__DIR__.'/Modules/User/migrations');
-        $this->loadMigrationsFrom(__DIR__.'/Modules/Content/migrations');
-
-        view()->composer('laracms.breadcrumbs::links',BreadcrumbsComposer::class);
+        $this->bootHelpers();
+        $this->loadModules();
     }
 
     /**
@@ -41,17 +25,13 @@ class LaracmsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        include __DIR__.'/Modules/Dashboard/laracms_routes.php';
-        include __DIR__.'/Modules/User/laracms_user_routes.php';
-        include __DIR__.'/Modules/Content/laracms_content_routes.php';
-
-        $this->app->bind('Content', Modules\Content\Content::class);
+        //
     }
 
     /**
      * Register helpers
      */
-    public function registerHelpers()
+    public function bootHelpers()
     {
         // Load the helpers in app/Http/helpers.php
         if (file_exists($file = __DIR__.'/laracms_helpers.php'))
@@ -59,4 +39,49 @@ class LaracmsServiceProvider extends ServiceProvider
             require $file;
         }
     }
+
+    /**
+     * Load view, migration, routes
+     */
+    private function loadModules()
+    {
+        foreach (array_diff(scandir(__DIR__.'/Modules/'), ['.', '..']) as $moduleName) {
+            $moduleFolder = __DIR__ . '/Modules/' . $moduleName;
+
+            $this->loadViewsFrom($moduleFolder . '/views', 'laracms.' . strtolower($moduleName));
+            $this->loadMigrationsFrom($moduleFolder . '/migrations');
+            $this->loadModuleRoute($moduleFolder, strtolower($moduleName));
+            $this->registerModuleProvider($moduleFolder, $moduleName);
+        }
+    }
+
+    /**
+     *
+     * Load module route if exist
+     * @param $moduleFolder
+     * @param $directory
+     */
+    private function loadModuleRoute($moduleFolder, $moduleName) {
+        if (File::exists($route = $moduleFolder . '/laracms_' . $moduleName . '_routes.php'))
+        {
+            include $route;
+        }
+    }
+
+    /**
+     * @param $moduleFolder
+     * @param $moduleName
+     */
+    private function registerModuleProvider($moduleFolder, $moduleName)
+    {
+        if (File::exists($folder = $moduleFolder . '/Providers'))
+        {
+            $namespace = __NAMESPACE__ . '\Modules\\' . $moduleName . '\\Providers\\';
+            foreach (array_diff(scandir($folder), ['.', '..']) as $provider) {
+                $provider = str_replace('.php', '', $provider);
+                $this->app->register($namespace . $provider);
+            }
+        }
+    }
+
 }

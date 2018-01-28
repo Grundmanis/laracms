@@ -23,14 +23,21 @@ class Content
     /**
      * @param string $slug
      * @param null $locale
-     * @return mixed
+     * @return string
      */
     public function get(string $slug, $locale = null)
     {
-        if ($locale) {
-            return $this->contents[$slug]->translate($locale)->value;
+        if (empty($this->contents[$slug])) {
+            return 'Content does not exist.';
         }
-        return $this->contents[$slug]->value;
+
+        $content = $this->contents[$slug];
+
+        if ($locale) {
+            return $content->translate($locale)->value;
+        }
+
+        return $content->value;
     }
 
 

@@ -1,4 +1,4 @@
-@extends('laracms::auth')
+@extends('laracms.dashboard::layouts.auth')
 
 @section('content')
     <div class="container">

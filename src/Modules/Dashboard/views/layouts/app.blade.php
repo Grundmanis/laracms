@@ -55,12 +55,17 @@
             <ul class="nav nav-sidebar">
                 <li {{ activeRoute('laracms') }} >
                     <a href="{{ route('laracms') }}">
-                        Overview
+                        Dashboard
                     </a>
                 </li>
                 <li {{ activeRoute('laracms/content*') }}>
                     <a href="{{ route('laracms.content') }}">
                         Content
+                    </a>
+                </li>
+                <li {{ activeRoute('laracms/users*') }}>
+                    <a href="#">
+                        Users
                     </a>
                 </li>
             </ul>
