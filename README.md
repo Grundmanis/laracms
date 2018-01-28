@@ -1,7 +1,7 @@
 # Lara CMS
 This is the Content Management System on Laravel 5.5, made for fun.
 
-![alt text](http://screenshotlink.ru/c2b436b8225743cce450feebe8221fd2.png//url/to/img.png)
+![larcms dashboard](http://screenshotlink.ru/c2b436b8225743cce450feebe8221fd2.png)
 
 ## Installation
 * Register service provider `Grundweb\Laracms\LaracmsServiceProvider::class` in `config/app.php` providers array
