@@ -1,5 +1,6 @@
 {
     "name": "grundmanis/laracms",
+    "description": "Laravel cms",
     "license": "MIT",
     "authors": [
         {
@@ -7,6 +8,7 @@
             "email": "agrundmanis@inbox.lv"
         }
     ],
+    "minimum-stability": "stable",
     "require": {
         "dimsav/laravel-translatable": "^8.0",
         "php": ">=7.0.0",
