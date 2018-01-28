@@ -3,6 +3,8 @@
 namespace Grundweb\Laracms\Modules\Content\Providers;
 
 use Grundweb\Laracms\Modules\Content\Content;
+use Grundweb\Laracms\Modules\Content\Facades\ContentFacade;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class ContentProvider extends ServiceProvider
@@ -24,8 +26,10 @@ class ContentProvider extends ServiceProvider
      */
     public function register()
     {
-        // Content module
         $this->app->bind('Content', Content::class);
+
+        $loader = AliasLoader::getInstance();
+        $loader->alias('Content', ContentFacade::class);
     }
 
 }
