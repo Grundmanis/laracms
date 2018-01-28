@@ -6,7 +6,12 @@ manage them in laracms dashboard.
 ![larcms dashboard](https://user-images.githubusercontent.com/6103997/35482156-c64ad344-0439-11e8-9972-db1f9c9c89b4.png)
 
 ## How to use
-In blade files, use `Content::get($slug, $locale = null)` or helper `content($slug, $locale = null)`
+LaraCMS link: `yourhost.com/laracms`
+Test user (But seed first):
+```
+login: admin@laracms.com
+password: secret
+```
 
 ## Installation
 In `config/app.php` **providers** array register laracms service provider:
@@ -30,4 +35,8 @@ and a new provider:
     'driver' => 'eloquent',
     'model' => \Grundmanis\Laracms\Modules\User\Models\LaracmsUser::class,
 ],
+```
+## Seeder
+```
+php artisan db:seed --class=Grundmanis\\Laracms\\Modules\\User\\LaracmsUserSeeder
 ```
