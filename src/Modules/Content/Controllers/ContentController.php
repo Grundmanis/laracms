@@ -69,4 +69,14 @@ class ContentController extends Controller
         $content->update($request->all());
         return back()->with('status', 'Content updated!');
     }
+
+    /**
+     * @param LaracmsContent $content
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(LaracmsContent $content)
+    {
+        $content->delete();
+        return redirect()->route('laracms.content')->with('status', 'Content deleted! Make sure to remove it from blade');
+    }
 }

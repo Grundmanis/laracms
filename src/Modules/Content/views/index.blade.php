@@ -23,6 +23,8 @@
                         <td>{{ $content->value }}</td>
                         <td>
                             <a href="{{ route('laracms.content.edit', $content->id) }}">Edit</a>
+                            |
+                            <a onclick="return confirm('Are you sure?')" href="{{ route('laracms.content.destroy', $content->id) }}">Delete</a>
                         </td>
                     </tr>
                 @endforeach
