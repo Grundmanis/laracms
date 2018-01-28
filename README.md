@@ -3,7 +3,7 @@ This is the Content Management System on Laravel 5.5, made for fun.
 For now, main feature is to use translated texts directly from database in your blades and 
 manage them in laracms dashboard.
 
-![larcms dashboard](https://user-images.githubusercontent.com/6103997/35482156-c64ad344-0439-11e8-9972-db1f9c9c89b4.png)
+![laracms dashboard](https://user-images.githubusercontent.com/6103997/35482156-c64ad344-0439-11e8-9972-db1f9c9c89b4.png)
 
 ## How to use
 LaraCMS link: `yourhost.com/laracms`
