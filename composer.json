@@ -1,5 +1,6 @@
 {
     "name": "grundmanis/laracms",
+    "license": "MIT",
     "authors": [
         {
             "name": "Armand Grundmanis",
