@@ -6,8 +6,11 @@ manage them in laracms dashboard.
 ![laracms dashboard](https://user-images.githubusercontent.com/6103997/35482156-c64ad344-0439-11e8-9972-db1f9c9c89b4.png)
 
 ## How to use
-LaraCMS link: `yourhost.com/laracms`
-Test user (But seed first):
+LaraCMS link: 
+```
+yourhost.com/laracms
+```
+Test user (But run seeder first):
 ```
 login: admin@laracms.com
 password: secret
@@ -32,15 +35,15 @@ For authentication in dashboard, in `config/auth.php` add a new guard:
 ```
 'laracms' => [
     'driver' => 'session',
-    'provider' => 'laracms_users',
-],
+    'provider' => 'laracms_users'
+]
 ``` 
 and a new provider:
 ```
 'laracms_users' => [
     'driver' => 'eloquent',
-    'model' => \Grundmanis\Laracms\Modules\User\Models\LaracmsUser::class,
-],
+    'model' => \Grundmanis\Laracms\Modules\User\Models\LaracmsUser::class
+]
 ```
 ## Seeder
 ```
