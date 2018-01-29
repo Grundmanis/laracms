@@ -6,7 +6,7 @@ manage them in laracms dashboard.
 ![laracms dashboard](https://user-images.githubusercontent.com/6103997/35482156-c64ad344-0439-11e8-9972-db1f9c9c89b4.png)
 
 ## How to use
-LaraCMS link: 
+Link to laracms dashboard: 
 ```
 yourhost.com/laracms
 ```
