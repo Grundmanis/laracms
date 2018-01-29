@@ -7,9 +7,9 @@ use Grundmanis\Laracms\Modules\Content\Models\LaracmsContent;
 class Content
 {
     /**
-     * @var static
+     * @var LaracmsContent
      */
-    protected $contents;
+    protected $content;
 
     /**
      * Content constructor.
@@ -17,7 +17,7 @@ class Content
      */
     public function __construct(LaracmsContent $content)
     {
-        $this->contents = $content->all()->keyBy('slug');
+        $this->content = $content;
     }
 
     /**
@@ -27,11 +27,11 @@ class Content
      */
     public function get(string $slug, $locale = null)
     {
-        if (empty($this->contents[$slug])) {
+        $content = $this->content->where('slug', $slug)->first();
+
+        if (!$content) {
             return 'Content does not exist.';
         }
-
-        $content = $this->contents[$slug];
 
         if ($locale) {
             return $content->translate($locale)->value;

@@ -43,6 +43,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ route('laracms.users.edit', Auth::guard('laracms')->user()->id) }}">Profile</a></li>
                 <li><a href="{{ route('laracms.logout') }}">Logout</a></li>
             </ul>
         </div>
@@ -79,6 +80,16 @@
             @endif
 
             @include('laracms.breadcrumbs::links')
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             @yield('content')
         </div>

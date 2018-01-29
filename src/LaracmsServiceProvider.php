@@ -34,7 +34,7 @@ class LaracmsServiceProvider extends ServiceProvider
     private function bootHelpers()
     {
         // Load the helpers in app/Http/helpers.php
-        if (file_exists($file = __DIR__.'/laracms_helpers.php'))
+        if (file_exists($file = __DIR__.'/functions.php'))
         {
             require $file;
         }
