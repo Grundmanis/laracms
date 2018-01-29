@@ -16,7 +16,11 @@ password: secret
 In blade files, use `Content::get($slug, $locale = null)` or helper `content($slug, $locale = null)`
 
 ## Installation
-In `config/app.php` **providers** array register laracms service provider:
+Run 
+```
+composer require grundmanis/laracms
+```
+Then in `config/app.php` **providers** array register laracms service provider:
 ```
 Grundmanis\Laracms\LaracmsServiceProvider::class
 ``` 
