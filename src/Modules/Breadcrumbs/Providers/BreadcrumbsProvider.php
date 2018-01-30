@@ -14,7 +14,7 @@ class BreadcrumbsProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Breadcrumbs module
+        $this->loadViewsFrom(__DIR__ . '/../views', 'laracms.breadcrumbs');
         view()->composer('laracms.breadcrumbs::links',BreadcrumbsComposer::class);
     }
 

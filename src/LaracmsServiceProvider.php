@@ -14,8 +14,10 @@ class LaracmsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->bootHelpers();
-        $this->loadModules();
+        require(__DIR__.'/functions.php');
+
+        $this->registerModules();
+
         $this->publishes([
             __DIR__ . '/config/laracms.php' => config_path('laracms.php'),
         ], 'laracms');
@@ -34,42 +36,13 @@ class LaracmsServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register helpers
-     */
-    private function bootHelpers()
-    {
-        // Load the helpers in app/Http/helpers.php
-        if (file_exists($file = __DIR__.'/functions.php'))
-        {
-            require $file;
-        }
-    }
-
-    /**
      * Load view, migration, routes
      */
-    private function loadModules()
+    private function registerModules()
     {
         foreach (array_diff(scandir(__DIR__.'/Modules/'), ['.', '..']) as $moduleName) {
             $moduleFolder = __DIR__ . '/Modules/' . $moduleName;
-
-            $this->loadViewsFrom($moduleFolder . '/views', 'laracms.' . strtolower($moduleName));
-            $this->loadMigrationsFrom($moduleFolder . '/migrations');
-            $this->loadModuleRoute($moduleFolder, strtolower($moduleName));
             $this->registerModuleProvider($moduleFolder, $moduleName);
-        }
-    }
-
-    /**
-     *
-     * Load module route if exist
-     * @param $moduleFolder
-     * @param $moduleName
-     */
-    private function loadModuleRoute($moduleFolder, $moduleName) {
-        if (File::exists($route = $moduleFolder . '/laracms_' . $moduleName . '_routes.php'))
-        {
-            include $route;
         }
     }
 

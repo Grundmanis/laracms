@@ -16,7 +16,9 @@ class UserProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        // User module
+        $this->loadViewsFrom(__DIR__ . '/../views', 'laracms.user');
+        $this->loadMigrationsFrom(__DIR__ . '/../migrations');
+        $this->loadRoutesFrom(__DIR__ . '/../laracms_user_routes.php');
         $router->aliasMiddleware('laracms.auth', LaracmsRedirectIfNotAuthenticated::class);
         $router->aliasMiddleware('laracms.guest', LaracmsRedirectIfAuthenticated::class);
     }
