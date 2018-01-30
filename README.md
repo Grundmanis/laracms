@@ -18,6 +18,9 @@ password: secret
 
 In blade files, use `Content::get($slug, $locale = null)` or helper `content($slug, $locale = null)`
 
+Also You can write your own modules for laracms, check <a href="https://github.com/Grundmanis/laracms/tree/master/src/Modules">Modules</a> folder,
+or check already created by me separate module - <a href="https://github.com/Grundmanis/laracms-content">Content Module</a>
+
 ## Installation
 Run 
 ```
