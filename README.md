@@ -49,3 +49,10 @@ and a new provider:
 ```
 php artisan db:seed --class=Grundmanis\\Laracms\\Modules\\User\\LaracmsUserSeeder
 ```
+
+## Publish
+For now, You can publish only config file which stores dashboard menu points
+```
+php artisan vendor:publish --tag=laracms
+
+```

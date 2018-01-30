@@ -16,6 +16,9 @@ class LaracmsServiceProvider extends ServiceProvider
     {
         $this->bootHelpers();
         $this->loadModules();
+        $this->publishes([
+            __DIR__ . '/config/laracms.php' => config_path('laracms.php'),
+        ], 'laracms');
     }
 
     /**
@@ -25,7 +28,9 @@ class LaracmsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(
+            __DIR__ . '/config/laracms.php', 'laracms'
+        );
     }
 
     /**

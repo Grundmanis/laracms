@@ -6,6 +6,6 @@ Route::group([
     'prefix'     => 'laracms'
 ], function () {
 
-    Route::get('/', 'DashboardController@index')->name('laracms');
+    Route::get('/', 'DashboardController@index')->name('laracms.dashboard');
 
 });

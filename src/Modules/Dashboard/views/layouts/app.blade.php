@@ -39,7 +39,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('laracms') }}">LaraCMS</a>
+            <a class="navbar-brand" href="{{ route('laracms.dashboard') }}">LaraCMS</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -55,20 +55,17 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li {{ activeRoute('laracms') }} >
-                    <a href="{{ route('laracms') }}">
+                    <a href="{{ route('laracms.dashboard') }}">
                         Dashboard
                     </a>
                 </li>
-                <li {{ activeRoute('laracms/content*') }}>
-                    <a href="{{ route('laracms.content') }}">
-                        Content
-                    </a>
-                </li>
-                <li {{ activeRoute('laracms/users*') }}>
-                    <a href="{{ route('laracms.users') }}">
-                        Users
-                    </a>
-                </li>
+                @foreach(config('laracms.dashboard_menu') as $menu => $link)
+                    <li {{ activeRoute($link . '*') }}>
+                        <a href="/{{ $link }}">
+                            {{ ucfirst($menu) }}
+                        </a>
+                    </li>
+                @endforeach
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

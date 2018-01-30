@@ -1,0 +1,23 @@
+{
+    "name": "grundmanis/laracms-content",
+    "description": "Laravel cms content module",
+    "keywords": ["laravel", "cms", "admin", "dashboard", "panel", "content", "module"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Armand Grundmanis",
+            "email": "agrundmanis@inbox.lv"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "dimsav/laravel-translatable": "^8.0",
+        "php": ">=7.0.0",
+        "laravel/framework": "5.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Grundmanis\\Laracms\\Modules\\Content\\": "src/"
+        }
+    }
+}

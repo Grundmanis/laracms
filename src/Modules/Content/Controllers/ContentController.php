@@ -4,7 +4,7 @@ namespace Grundmanis\Laracms\Modules\Content\Controllers;
 
 use App\Http\Controllers\Controller;
 use Grundmanis\Laracms\Modules\Content\Models\LaracmsContent;
-use Grundmanis\Laracms\Modules\Content\Requests\UserRequest;
+use Grundmanis\Laracms\Modules\Content\Requests\ContentRequest;
 
 class ContentController extends Controller
 {
@@ -29,7 +29,7 @@ class ContentController extends Controller
     public function index()
     {
         $contents = LaracmsContent::paginate(10);
-        return view('laracms.content::index', compact('contents', 'test'));
+        return view('laracms.content::index', compact('contents'));
     }
 
     /**
@@ -41,10 +41,10 @@ class ContentController extends Controller
     }
 
     /**
-     * @param UserRequest $request
+     * @param ContentRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(UserRequest $request)
+    public function store(ContentRequest $request)
     {
         $this->content->create($request->all());
         return redirect()->route('laracms.content')->with('status', 'Content created!');
@@ -61,10 +61,10 @@ class ContentController extends Controller
 
     /**
      * @param LaracmsContent $content
-     * @param UserRequest $request
+     * @param ContentRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(LaracmsContent $content, UserRequest $request)
+    public function update(LaracmsContent $content, ContentRequest $request)
     {
         $content->update($request->all());
         return back()->with('status', 'Content updated!');
