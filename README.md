@@ -1,7 +1,7 @@
 # Lara CMS
 This is the Content Management System on Laravel 5.5, made for fun.
 
-![laracms dashboard](https://user-images.githubusercontent.com/6103997/35482156-c64ad344-0439-11e8-9972-db1f9c9c89b4.png)
+![yqjblk8s1io](https://user-images.githubusercontent.com/6103997/35647067-0dd73f0c-06da-11e8-9f44-cc27753a006c.png)
 
 ## How to use
 
