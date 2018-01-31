@@ -1,8 +1,7 @@
-# Lara CMS
+# Lara CMS - Laravel Content Management System
 This is the Content Management System on Laravel 5.5, made for fun.
 
-![yqjblk8s1io](https://user-images.githubusercontent.com/6103997/35647067-0dd73f0c-06da-11e8-9f44-cc27753a006c.png)
-
+![laravel](https://user-images.githubusercontent.com/6103997/35647123-3fa8b218-06da-11e8-9cf8-6e7ddd7296d6.png)
 ## How to use
 
 ### Dashboard
