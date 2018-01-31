@@ -34,6 +34,18 @@
             <small id="url" class="form-text text-muted">This url will be shown in address bar</small>
         </div>
 
+        <div class="form-group">
+            <label for="slug">Layout<span>*</span></label>
+            <select class="form-control" name="layout" id="layout">
+                @foreach($layouts as $layout)
+                    <option @if(formValue($page ?? null, 'layout') == $layout) selected @endif value="{{ $layout }}">
+                        {{ $layout }}
+                    </option>
+                @endforeach
+            </select>
+            <small id="layout" class="form-text text-muted">Layouts are located in <strong>resources/views/laracms/pages/layouts</strong></small>
+        </div>
+
         <!-- Nav tabs -->
         <div class="form-group">
             <ul class="nav nav-tabs" role="tablist">

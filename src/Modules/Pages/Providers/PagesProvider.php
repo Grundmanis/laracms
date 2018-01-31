@@ -15,6 +15,11 @@ class PagesProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../views', 'laracms.pages');
         $this->loadRoutesFrom(__DIR__ . '/../laracms_pages_routes.php');
+
+        $this->publishes([
+            __DIR__.'/../views/pages/' => resource_path('views/laracms/pages'),
+        ], 'laracms_pages');
+
     }
 
     /**
@@ -24,7 +29,6 @@ class PagesProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 
 }

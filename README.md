@@ -54,8 +54,13 @@ php artisan db:seed --class=Grundmanis\\Laracms\\Modules\\User\\LaracmsUserSeede
 ```
 
 ## Publish
-For now, You can publish only config file which stores dashboard menu points
+You can publish config file which stores dashboard menu points
 ```
 php artisan vendor:publish --tag=laracms
+
+```
+Also You can publish page layouts, to make available to modify them
+```
+php artisan vendor:publish --tag=laracms_pages
 
 ```
