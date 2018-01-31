@@ -1,11 +1,11 @@
 # Lara CMS
 This is the Content Management System on Laravel 5.5, made for fun.
-For now, main feature is to use translated texts directly from database in your blades and 
-manage them in laracms dashboard.
 
 ![laracms dashboard](https://user-images.githubusercontent.com/6103997/35482156-c64ad344-0439-11e8-9972-db1f9c9c89b4.png)
 
 ## How to use
+
+### Dashboard
 Link to laracms dashboard: 
 ```
 yourhost.com/laracms
@@ -16,10 +16,39 @@ login: admin@laracms.com
 password: secret
 ```
 
-In blade files, use `Content::get($slug, $locale = null)` or helper `content($slug, $locale = null)`
+Publish config file which stores dashboard menu points, you can add your own too:
+```
+php artisan vendor:publish --tag=laracms
 
-Also You can write your own modules for laracms, check <a href="https://github.com/Grundmanis/laracms/tree/master/src/Modules">Modules</a> folder,
+```
+
+### Modules
+You can write your own modules for laracms, check <a href="https://github.com/Grundmanis/laracms/tree/master/src/Modules">Modules</a> folder,
 or check already created by me separate module - <a href="https://github.com/Grundmanis/laracms-content">Content Module</a>
+
+### User module
+Simple module which allows to CRUD cms users
+
+### Content module
+This module allows to use translated texts directly from database in your blade files and 
+manage them in laracms dashboard.
+
+Click on "content" menu point or go to `yourhost.com/laracms/content/`, create a new content with unique slug and translated values,
+then in blade files, use `Content::get($slug, $locale = null)` or helper `content($slug, $locale = null)`
+
+### Pages module
+This module allows to create a new pages with urls for your website.
+
+Publish page layouts to make available to modify them
+```
+php artisan vendor:publish --tag=laracms_pages
+
+```
+Then `resources/views/laracms/pages/layouts` will appear with 2 already created layouts, 
+You can create your own layouts in this folder and they will be automatically grabbed by laracms.
+
+Click on "pages" menu point or go to `yourhost.com/laracms/pages/`, create a new page by using unique URL, choose layout and
+type some text. Now, You can see your page: `yourhost.com/whatever_created_page_slug_here`
 
 ## Installation
 Run 
@@ -51,16 +80,4 @@ and a new provider:
 ## Seeder
 ```
 php artisan db:seed --class=Grundmanis\\Laracms\\Modules\\User\\LaracmsUserSeeder
-```
-
-## Publish
-You can publish config file which stores dashboard menu points
-```
-php artisan vendor:publish --tag=laracms
-
-```
-Also You can publish page layouts, to make available to modify them
-```
-php artisan vendor:publish --tag=laracms_pages
-
 ```
