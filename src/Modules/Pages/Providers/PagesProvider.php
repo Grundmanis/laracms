@@ -14,11 +14,11 @@ class PagesProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../views', 'laracms.pages');
-        $this->loadRoutesFrom(__DIR__ . '/../laracms_pages_routes.php');
         $this->loadMigrationsFrom(__DIR__ . '/../migrations');
+        $this->loadRoutesFrom(__DIR__ . '/../laracms_pages_routes.php');
 
         $this->publishes([
-            __DIR__.'/../views/pages/' => resource_path('views/laracms/pages'),
+            __DIR__.'/../views/pages/layouts/' => resource_path('views/laracms/pages/layouts'),
         ], 'laracms_pages');
 
     }

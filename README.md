@@ -52,7 +52,7 @@ type some text. Now, You can see your page: `yourhost.com/whatever_created_page_
 ## Installation
 Run 
 ```
-composer require grundmanis/laracms
+composer require grundmanis/laracms @dev
 ```
 Then in `config/app.php` **providers** array register laracms service provider:
 ```
@@ -83,4 +83,12 @@ php artisan migrate
 and run seeder:
 ```
 php artisan db:seed --class=Grundmanis\\Laracms\\Modules\\User\\LaracmsUserSeeder
+```
+publish translation configs files:
+``` 
+php artisan vendor:publish --tag=translatable 
+```
+and finally publish views:
+``` 
+php artisan vendor:publish --tag=laracms_pages
 ```
