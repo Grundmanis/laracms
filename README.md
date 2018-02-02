@@ -76,7 +76,11 @@ and a new provider:
     'model' => \Grundmanis\Laracms\Modules\User\Models\LaracmsUser::class
 ]
 ```
-## Seeder
+Run migration:
+``` 
+php artisan migrate
+```
+and run seeder:
 ```
 php artisan db:seed --class=Grundmanis\\Laracms\\Modules\\User\\LaracmsUserSeeder
 ```
