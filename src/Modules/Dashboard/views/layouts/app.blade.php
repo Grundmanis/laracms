@@ -43,6 +43,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Website</a></li>
                 <li><a href="{{ route('laracms.users.edit', Auth::guard('laracms')->user()->id) }}">Profile</a></li>
                 <li><a href="{{ route('laracms.logout') }}">Logout</a></li>
             </ul>
