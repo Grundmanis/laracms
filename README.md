@@ -84,7 +84,9 @@ and run seeder:
 ```
 php artisan db:seed --class=Grundmanis\\Laracms\\Modules\\User\\LaracmsUserSeeder
 ```
-publish translation configs files:
+publish translation configs files: 
+(Make sure to have only strings in locales array in `config/translations.php`, 
+otherwise you will receive an error on page creation page)
 ``` 
 php artisan vendor:publish --tag=translatable 
 ```
