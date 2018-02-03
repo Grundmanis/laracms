@@ -15,6 +15,12 @@
         "php": ">=7.0.0",
         "laravel/framework": "5.5.*"
     },
+    "laravel": {
+        "providers": [
+            "Grundmanis\\Laracms\\LaracmsServiceProvider",
+            "Dimsav\\Translatable\\TranslatableServiceProvider"
+        ]
+    },
     "autoload": {
         "psr-4": {
             "Grundmanis\\Laracms\\": "src/"

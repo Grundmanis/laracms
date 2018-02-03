@@ -54,14 +54,6 @@ Run
 ```
 composer require grundmanis/laracms @dev
 ```
-Then in `config/app.php` **providers** array register laracms service provider:
-```
-Grundmanis\Laracms\LaracmsServiceProvider::class
-``` 
-and if You are not using yet the <a href="https://github.com/dimsav/laravel-translatable">Dimsav\Translatable</a> package, register it as well: 
-``` 
-Dimsav\Translatable\TranslatableServiceProvider::class
-```
 For authentication in dashboard, in `config/auth.php` add a new guard:
 ```
 'laracms' => [
@@ -76,21 +68,7 @@ and a new provider:
     'model' => \Grundmanis\Laracms\Modules\User\Models\LaracmsUser::class
 ]
 ```
-Run migration:
+Finally, run configuration command:
 ``` 
-php artisan migrate
-```
-and run seeder:
-```
-php artisan db:seed --class=Grundmanis\\Laracms\\Modules\\User\\LaracmsUserSeeder
-```
-publish translation configs files: 
-(Make sure to have only strings in locales array in `config/translations.php`, 
-otherwise you will receive an error on page creation page)
-``` 
-php artisan vendor:publish --tag=translatable 
-```
-and finally publish views:
-``` 
-php artisan vendor:publish --tag=laracms_pages
+php artisan laracms:configure
 ```

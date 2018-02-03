@@ -2,6 +2,7 @@
 
 namespace Grundmanis\Laracms\Modules\Dashboard\Providers;
 
+use Grundmanis\Laracms\Modules\Dashboard\Commands\LaracmsConfigure;
 use Grundmanis\Laracms\Modules\Dashboard\Facades\LocaleFacade;
 use Grundmanis\Laracms\Modules\Dashboard\LocalesGenerator;
 use Grundmanis\Laracms\Modules\Dashboard\ViewComposers\LocalesComposer;
@@ -17,6 +18,11 @@ class DashboardProvider extends ServiceProvider
      */
     public function boot()
     {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                LaracmsConfigure::class,
+            ]);
+        }
         $this->loadViewsFrom(__DIR__ . '/../views', 'laracms.dashboard');
         $this->loadRoutesFrom(__DIR__ . '/../laracms_dashboard_routes.php');
         view()->composer('*',LocalesComposer::class);
