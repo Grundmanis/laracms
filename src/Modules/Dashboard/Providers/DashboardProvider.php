@@ -2,6 +2,10 @@
 
 namespace Grundmanis\Laracms\Modules\Dashboard\Providers;
 
+use Grundmanis\Laracms\Modules\Dashboard\Facades\LocaleFacade;
+use Grundmanis\Laracms\Modules\Dashboard\LocalesGenerator;
+use Grundmanis\Laracms\Modules\Dashboard\ViewComposers\LocalesComposer;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class DashboardProvider extends ServiceProvider
@@ -15,6 +19,7 @@ class DashboardProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../views', 'laracms.dashboard');
         $this->loadRoutesFrom(__DIR__ . '/../laracms_dashboard_routes.php');
+        view()->composer('*',LocalesComposer::class);
     }
 
     /**
@@ -24,7 +29,10 @@ class DashboardProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('Locale', LocalesGenerator::class);
+
+        $loader = AliasLoader::getInstance();
+        $loader->alias('Locale', LocaleFacade::class);
     }
 
 }

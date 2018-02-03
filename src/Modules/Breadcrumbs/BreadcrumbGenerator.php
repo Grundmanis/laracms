@@ -9,7 +9,7 @@ class BreadcrumbGenerator
     /**
      * @var array
      */
-    public $segments;
+    private $segments;
 
     /**
      * Breadcrumbs constructor.
@@ -37,6 +37,14 @@ class BreadcrumbGenerator
     public function getSegmentCount()
     {
         return count($this->segments) - 1;
+    }
+
+    /**
+     * @return array
+     */
+    public function getSegments()
+    {
+        return $this->segments;
     }
 
 }

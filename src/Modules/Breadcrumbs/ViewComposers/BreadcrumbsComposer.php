@@ -34,7 +34,7 @@ class BreadcrumbsComposer
     {
         $view->with([
             'url' => '/',
-            'segments' => $this->breadcrumbs->segments,
+            'segments' => $this->breadcrumbs->getSegments(),
             'segmentCount' => $this->breadcrumbs->getSegmentCount(),
         ]);
     }

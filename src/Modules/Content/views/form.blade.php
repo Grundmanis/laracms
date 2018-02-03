@@ -37,7 +37,7 @@
         <!-- Nav tabs -->
         <div class="form-group">
             <ul class="nav nav-tabs" role="tablist">
-                @foreach(config('translatable.locales') as $key => $locale)
+                @foreach($locales as $key => $locale)
                     <li role="presentation" @if(!$key) class="active" @endif>
                         <a href="#{{ $locale }}" data-toggle="tab">
                             {{ $locale }}
@@ -50,7 +50,7 @@
         <div class="tab-content">
             <label title="value">Value</label>
 
-            @foreach(config('translatable.locales') as $key => $locale)
+            @foreach($locales as $key => $locale)
                 <div class="tab-pane @if(!$key) active @endif" id="{{ $locale }}">
                     <div class="form-group">
                         <textarea name="{{ $locale }}[value]">

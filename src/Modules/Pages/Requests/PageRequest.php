@@ -4,6 +4,7 @@ namespace Grundmanis\Laracms\Modules\Pages\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Locale;
 
 class PageRequest extends FormRequest
 {
@@ -29,7 +30,7 @@ class PageRequest extends FormRequest
             'url' => 'required'
         ];
 
-        foreach(config('translatable.locales') as $locale)
+        foreach(Locale::getLocales() as $locale)
         {
             $rules[$locale . '.text'] = 'required';
         }
@@ -40,7 +41,7 @@ class PageRequest extends FormRequest
     public function attributes()
     {
         $fields = [];
-        foreach(config('translatable.locales') as $locale)
+        foreach(Locale::getLocales() as $locale)
         {
             $fields[$locale . '.text'] = $locale .' text';
         }
