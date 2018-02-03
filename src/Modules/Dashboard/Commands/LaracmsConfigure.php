@@ -2,6 +2,7 @@
 
 namespace Grundmanis\Laracms\Modules\Dashboard\Commands;
 
+use Grundmanis\Laracms\Modules\User\Models\LaracmsUser;
 use Illuminate\Console\Command;
 
 class LaracmsConfigure extends Command
@@ -19,15 +20,20 @@ class LaracmsConfigure extends Command
      * @var string
      */
     protected $description = 'Configure the Laracms';
+    /**
+     * @var LaracmsUser
+     */
+    private $user;
 
     /**
      * Create a new command instance.
      *
-     * @return void
+     * @param LaracmsUser $user
      */
-    public function __construct()
+    public function __construct(LaracmsUser $user)
     {
         parent::__construct();
+        $this->user = $user;
     }
 
     /**
@@ -52,14 +58,16 @@ class LaracmsConfigure extends Command
 
         $this->call('migrate');
 
-        $this->call('db:seed', [
-            '--class' => 'Grundmanis\\Laracms\\Modules\\User\\LaracmsUserSeeder'
-        ]);
+        if (!$this->user->where('email', 'admin@laracms.com')->first()) {
+            $this->call('db:seed', [
+                '--class' => 'Grundmanis\\Laracms\\Modules\\User\\LaracmsUserSeeder'
+            ]);
 
-        $loginUrl = env('APP_URL') . '/laracms/login';
-        $this->info('Laracms test user was created.');
-        $this->info('Login link: ' . $loginUrl);
-        $this->info('Login: admin@laracms.com');
-        $this->info('Password: secret');
+            $loginUrl = env('APP_URL') . '/laracms/login';
+            $this->info('Laracms test user was created.');
+            $this->info('Login link: ' . $loginUrl);
+            $this->info('Login: admin@laracms.com');
+            $this->info('Password: secret');
+        }
     }
 }
