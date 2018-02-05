@@ -11,16 +11,15 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "dimsav/laravel-translatable": "^8.0",
         "php": ">=7.0.0",
         "laravel/framework": "5.5.*",
-        "grundmanis/laracms-content": "dev-master"
+        "grundmanis/laracms-content": "dev-master",
+        "grundmanis/laracms-pages": "dev-master"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Grundmanis\\Laracms\\LaracmsServiceProvider",
-                "Dimsav\\Translatable\\TranslatableServiceProvider"
+                "Grundmanis\\Laracms\\LaracmsServiceProvider"
             ]
         }
     },
