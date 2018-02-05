@@ -13,8 +13,8 @@
     "require": {
         "php": ">=7.0.0",
         "laravel/framework": "5.5.*",
-        "grundmanis/laracms-content": "dev-master",
-        "grundmanis/laracms-pages": "dev-master"
+        "grundmanis/laracms-content": "1.0.*",
+        "grundmanis/laracms-pages": "1.0.*"
     },
     "extra": {
         "laravel": {
