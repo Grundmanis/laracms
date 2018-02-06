@@ -3,6 +3,7 @@
 namespace Grundmanis\Laracms\Modules\User\Middleware;
 
 use Closure;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LaracmsRedirectIfNotAuthenticated
@@ -20,6 +21,15 @@ class LaracmsRedirectIfNotAuthenticated
         if (!Auth::guard('laracms')->check()) {
             return redirect('/laracms/login');
         }
+
+        $user = Auth::guard('laracms')->user();
+
+        if (!$user->updated_at && !request()->is('laracms/users/edit/' . $user->id)) {
+            return redirect()
+                ->route('laracms.users.edit', $user->id)
+                ->with('status', 'Please, change default password on new one.');
+        }
+
         return $next($request);
     }
 }

@@ -71,7 +71,7 @@ class UserController extends Controller
      */
     public function update(LaracmsUser $user, UserRequest $request)
     {
-        $this->user->update([
+        $user->update([
             'email' => $request->input('email'),
             'name' => $request->input('name'),
             'password' => bcrypt($request->input('password')),
