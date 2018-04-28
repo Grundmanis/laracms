@@ -38,7 +38,7 @@ class DashboardProvider extends ServiceProvider
         $this->app->bind('Locale', LocalesGenerator::class);
 
         $loader = AliasLoader::getInstance();
-        $loader->alias('Locale', LocaleFacade::class);
+        $loader->alias('LocaleAlias', LocaleFacade::class);
     }
 
 }
