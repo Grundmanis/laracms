@@ -11,6 +11,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
+        "grundmanis/laracms-content": "@dev",
         "grundmanis/laracms-pages": "@dev"
     },
     "extra": {
