@@ -19,6 +19,27 @@
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/3.3/examples/dashboard/dashboard.css" rel="stylesheet">
 
+    <style>
+        .open .dropdown-menu {
+            position: relative;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            background-color: #f5f5f5;
+        }
+        .dropdown-menu>li>a {
+            color: #337ab7;
+            padding:10px 20px 10px 30px;
+        }
+        .dropdown-menu>li>a:hover {
+            color: #23527c;
+            background-color: #eee;
+        }
+    </style>
+
     @yield('styles')
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -61,11 +82,28 @@
                     </a>
                 </li>
                 @foreach(config('laracms.dashboard_menu') as $menu => $link)
-                    <li {{ activeRoute($link . '*') }}>
-                        <a href="/{{ $link }}">
-                            {{ ucfirst($menu) }}
-                        </a>
-                    </li>
+                    @if (is_array($link))
+                        <li class="dropdown {{ activeRoute(array_first($link) . '*') ? 'active open' : '' }}">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                {{ ucfirst($menu) }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                @foreach($link as $subMenu => $subLink)
+                                    <li class="{{ activeRoute($subLink) }}">
+                                        <a href="/{{ $subLink }}">
+                                            {{ ucfirst($subMenu) }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @else
+                        <li class="{{ activeRoute($link . '*') }}">
+                            <a href="/{{ $link }}">
+                                {{ ucfirst($menu) }}
+                            </a>
+                        </li>
+                    @endif
                 @endforeach
             </ul>
         </div>

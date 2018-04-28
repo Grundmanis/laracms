@@ -21,7 +21,7 @@ if (! function_exists('activeRoute'))
     function activeRoute($url)
     {
         if (request()->is($url)) {
-            return 'class=active';
+            return 'active';
         }
 
         return '';
