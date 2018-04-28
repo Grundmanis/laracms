@@ -10,11 +10,7 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {
-        "php": ">=7.0.0",
-        "grundmanis/laracms-content": "@dev",
-        "grundmanis/laracms-pages": "@dev"
-    },
+    "require": {},
     "extra": {
         "laravel": {
             "providers": [
