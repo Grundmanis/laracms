@@ -20,6 +20,7 @@ class LaracmsConfigure extends Command
      * @var string
      */
     protected $description = 'Configure the Laracms';
+
     /**
      * @var LaracmsUser
      */
@@ -54,6 +55,10 @@ class LaracmsConfigure extends Command
 
         $this->call('vendor:publish', [
             '--tag' => 'laracms_pages'
+        ]);
+
+        $this->call('vendor:publish', [
+            '--tag' => 'assets'
         ]);
 
         $this->call('migrate');

@@ -2,6 +2,8 @@
 
 namespace Grundmanis\Laracms;
 
+use Grundmanis\Laracms\Facades\MenuFacade;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,11 +18,11 @@ class LaracmsServiceProvider extends ServiceProvider
     {
         require(__DIR__.'/functions.php');
 
-        $this->registerModules();
-
         $this->publishes([
-            __DIR__ . '/config/laracms.php' => config_path('laracms.php'),
-        ], 'laracms');
+            __DIR__.'/assets/' => public_path('laracms/'),
+        ], 'assets');
+
+        $this->registerModules();
     }
 
     /**
@@ -30,9 +32,10 @@ class LaracmsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(
-            __DIR__ . '/config/laracms.php', 'laracms'
-        );
+        $this->app->bind('LaracmsMenu', LaracmsMenu::class);
+
+        $loader = AliasLoader::getInstance();
+        $loader->alias('MenuFacade', MenuFacade::class);
     }
 
     /**
@@ -40,8 +43,12 @@ class LaracmsServiceProvider extends ServiceProvider
      */
     private function registerModules()
     {
-        foreach (array_diff(scandir(__DIR__.'/Modules/'), ['.', '..']) as $moduleName) {
-            $moduleFolder = __DIR__ . '/Modules/' . $moduleName;
+        $modulesFolder = __DIR__ . '/Modules/';
+        $modules = scandir($modulesFolder);
+        $moduleNames = array_diff($modules, ['.', '..']);
+
+        foreach ($moduleNames as $moduleName) {
+            $moduleFolder = $modulesFolder . $moduleName;
             $this->registerModuleProvider($moduleFolder, $moduleName);
         }
     }
@@ -55,7 +62,10 @@ class LaracmsServiceProvider extends ServiceProvider
         if (File::exists($folder = $moduleFolder . '/Providers'))
         {
             $namespace = __NAMESPACE__ . '\Modules\\' . $moduleName . '\\Providers\\';
-            foreach (array_diff(scandir($folder), ['.', '..']) as $provider) {
+            $providers = scandir($folder);
+            $providerNames = array_diff($providers, ['.', '..']);
+
+            foreach ($providerNames as $provider) {
                 $provider = str_replace('.php', '', $provider);
                 $this->app->register($namespace . $provider);
             }
