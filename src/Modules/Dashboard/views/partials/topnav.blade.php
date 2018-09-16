@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse">
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a href="/" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="/" class="dropdown-toggle">
                 <i class="ti-panel"></i>
                 <p>Website</p>
             </a>
