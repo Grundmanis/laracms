@@ -1,25 +1,9 @@
-@extends('laracms.dashboard::layouts.app')
+@extends('laracms.dashboard::layouts.app', ['page' => 'Profile'])
 
 @section('content')
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar bar1"></span>
-                    <span class="icon-bar bar2"></span>
-                    <span class="icon-bar bar3"></span>
-                </button>
-                <a class="navbar-brand" href="#">Pages</a>
-            </div>
-            @include('laracms.dashboard::partials.topnav')
-        </div>
-    </nav>
-
     <div class="content">
         <div class="container-fluid">
-            <h1 class="page-header">Profile</h1>
             <div class="row">
                 <div class="col-sm-4 col-md-2">
                     <img width="210" src="https://materiell.com/wp-content/uploads/2015/03/doug_full1.png" alt="avatar">

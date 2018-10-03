@@ -3,30 +3,30 @@
         <li>
             <a href="/" class="dropdown-toggle">
                 <i class="ti-panel"></i>
-                <p>Website</p>
+                <p>Show the website</p>
             </a>
         </li>
         <li>
-            <a href="{{ route('laracms.users.edit', Auth::guard('laracms')->user()->id) }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('laracms.users.edit', Auth::guard('laracms')->user()->id) }}">
                 <i class="ti-panel"></i>
-                <p>Profile</p>
+                <p>My profile</p>
             </a>
         </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="ti-bell"></i>
-                <p class="notification">5</p>
-                <p>Notifications</p>
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Notification 1</a></li>
-                <li><a href="#">Notification 2</a></li>
-                <li><a href="#">Notification 3</a></li>
-                <li><a href="#">Notification 4</a></li>
-                <li><a href="#">Another notification</a></li>
-            </ul>
-        </li>
+        {{--<li class="dropdown">--}}
+            {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+                {{--<i class="ti-bell"></i>--}}
+                {{--<p class="notification">5</p>--}}
+                {{--<p>Notifications</p>--}}
+                {{--<b class="caret"></b>--}}
+            {{--</a>--}}
+            {{--<ul class="dropdown-menu">--}}
+                {{--<li><a href="#">Notification 1</a></li>--}}
+                {{--<li><a href="#">Notification 2</a></li>--}}
+                {{--<li><a href="#">Notification 3</a></li>--}}
+                {{--<li><a href="#">Notification 4</a></li>--}}
+                {{--<li><a href="#">Another notification</a></li>--}}
+            {{--</ul>--}}
+        {{--</li>--}}
         <li>
             <a href="{{ route('laracms.logout') }}">
                 <i class="ti-settings"></i>

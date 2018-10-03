@@ -19,7 +19,7 @@ class LaracmsServiceProvider extends ServiceProvider
         require(__DIR__.'/functions.php');
 
         $this->publishes([
-            __DIR__.'/assets/' => public_path('laracms/'),
+            __DIR__.'/assets/' => public_path('laracms_assets/'),
         ], 'assets');
 
         $this->registerModules();
