@@ -14,7 +14,6 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-
     <!-- Bootstrap core CSS     -->
     <link href="{{ asset('laracms_assets/css/bootstrap.min.css') }}" rel="stylesheet" />
 
@@ -122,8 +121,8 @@
 </body>
 
 <!--   Core JS Files   -->
-<script src="{{ asset('laracms_assets/js/jquery-1.10.2.js') }}" type="text/javascript"></script>
-<script src="{{ asset('laracms_assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 
 <!--  Checkbox, Radio & Switch Plugins -->
 <script src="{{ asset('laracms_assets/js/bootstrap-checkbox-radio.js') }}"></script>
