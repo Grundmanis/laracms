@@ -28,7 +28,7 @@
     <link href="{{ asset('laracms_assets/css/demo.css') }}" rel="stylesheet"/>
 
     <!--  Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="{{ asset('laracms_assets/css/themify-icons.css') }}" rel="stylesheet">
 
@@ -126,8 +126,8 @@
 </body>
 
 <!--   Core JS Files   -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 
 <!--  Checkbox, Radio & Switch Plugins -->
 <script src="{{ asset('laracms_assets/js/bootstrap-checkbox-radio.js') }}"></script>
