@@ -3,13 +3,13 @@
         <li>
             <a href="/" class="dropdown-toggle">
                 <i class="ti-panel"></i>
-                <p>Show the website</p>
+                <p>{{ __('admin.open_website') }}</p>
             </a>
         </li>
         <li>
             <a href="{{ route('laracms.users.edit', Auth::guard('laracms')->user()->id) }}">
                 <i class="ti-panel"></i>
-                <p>My profile</p>
+                <p>{{ __('admin.my_profile') }}</p>
             </a>
         </li>
         {{--<li class="dropdown">--}}
@@ -30,7 +30,7 @@
         <li>
             <a href="{{ route('laracms.logout') }}">
                 <i class="ti-settings"></i>
-                <p>Logout</p>
+                <p>{{ __('admin.logout') }}</p>
             </a>
         </li>
     </ul>

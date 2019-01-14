@@ -40,7 +40,7 @@ class UserProvider extends ServiceProvider
     private function addMenuRoutes()
     {
         $menu = [
-            'Users' => 'laracms.users'
+            'admin.menu.users' => 'laracms.users'
         ];
 
         MenuFacade::addMenu($menu);

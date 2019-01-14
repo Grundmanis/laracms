@@ -58,7 +58,7 @@
                                 @foreach($link as $subMenu => $subLink)
                                     <li class="{{ activeRoute($subLink) }}">
                                         <a href="{{ Route::has($subLink) ? route($subLink) : $subLink }}">
-                                            {{ ucfirst($subMenu) }}
+                                            {{ ucfirst(__($subMenu)) }}
                                         </a>
                                     </li>
                                 @endforeach
@@ -67,7 +67,7 @@
                     @else
                         <li class="{{ activeRoute($link . '*') }}">
                             <a href="{{ Route::has($link) ? route($link) : $link }}">
-                                {{ ucfirst($menu) }}
+                                {{ ucfirst(__($menu)) }}
                             </a>
                         </li>
                     @endif

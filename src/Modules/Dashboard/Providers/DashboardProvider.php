@@ -48,7 +48,7 @@ class DashboardProvider extends ServiceProvider
     private function addMenuRoutes()
     {
         $menu = [
-            'Dashboard' => 'laracms.dashboard'
+            'admin.menu.dashboard' => 'laracms.dashboard'
         ];
 
         MenuFacade::addMenu($menu);
