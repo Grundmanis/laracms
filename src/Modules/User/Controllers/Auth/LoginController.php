@@ -58,7 +58,7 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $this->guard()->logout();
+        $this->guard('laracms')->logout();
 
         $request->session()->invalidate();
 
@@ -73,6 +73,8 @@ class LoginController extends Controller
      */
     protected function sendLoginResponse(Request $request)
     {
+//        $request->session()->regenerate();
+
         $this->clearLoginAttempts($request);
 
         return $this->authenticated($request, $this->guard()->user())
