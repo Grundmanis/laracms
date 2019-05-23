@@ -6,6 +6,7 @@ use Grundmanis\Laracms\Facades\MenuFacade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class LaracmsServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class LaracmsServiceProvider extends ServiceProvider
         ], 'assets');
 
         $this->registerModules();
+
+        LaravelLocalization::setLocale('ru');
     }
 
     /**

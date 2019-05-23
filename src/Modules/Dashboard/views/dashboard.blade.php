@@ -1,5 +1,4 @@
 @extends('laracms.dashboard::layouts.app', ['page' => __('admin.menu.dashboard')] )
-
 @section('content')
     <div class="content">
         <div class="container-fluid">
