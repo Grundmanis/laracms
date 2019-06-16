@@ -11,8 +11,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "grundmanis/laracms-content": "@dev",
-        "grundmanis/laracms-pages": "@dev"
+        "grundmanis/laracms-content": "v1.0",
+        "grundmanis/laracms-pages": "v1.0"
     },
     "extra": {
         "laravel": {
