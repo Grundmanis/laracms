@@ -9,7 +9,7 @@
             "email": "agrundmanis@inbox.lv"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "grundmanis/laracms-content": "@dev",
         "grundmanis/laracms-pages": "@dev",
