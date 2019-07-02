@@ -1,7 +1,9 @@
 <?php
 
-if (! function_exists('formValue'))
-{
+/**
+ * Get the translated value in LaraCMS multi language fields
+ */
+if (!function_exists('formValue')) {
     function formValue($variable, $name, $locale = null)
     {
         if ($locale) {
@@ -11,8 +13,10 @@ if (! function_exists('formValue'))
     }
 }
 
-if (! function_exists('activeRoute'))
-{
+/**
+ * Get the active route in LaraCMS
+ */
+if (!function_exists('activeRoute')) {
     function activeRoute($url)
     {
         if (request()->routeIs($url)) {
@@ -23,8 +27,10 @@ if (! function_exists('activeRoute'))
     }
 }
 
-if (! function_exists('content'))
-{
+/**
+ * Helper to get the translated content
+ */
+if (!function_exists('content')) {
     function content($slug, $locale = null)
     {
         return Content::get($slug, $locale);

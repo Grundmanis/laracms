@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/laracms/customers';
+    protected $redirectTo = '/laracms/';
 
     /**
      * Show the application's login form.

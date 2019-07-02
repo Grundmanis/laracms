@@ -2,7 +2,7 @@
 
 namespace Grundmanis\Laracms;
 
-use Grundmanis\Laracms\Facades\MenuFacade;
+use Grundmanis\Laracms\Modules\Dashboard\Facades\MenuFacade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;

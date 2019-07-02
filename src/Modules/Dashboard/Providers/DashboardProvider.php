@@ -2,7 +2,7 @@
 
 namespace Grundmanis\Laracms\Modules\Dashboard\Providers;
 
-use Grundmanis\Laracms\Facades\MenuFacade;
+use Grundmanis\Laracms\Modules\Dashboard\Facades\MenuFacade;
 use Grundmanis\Laracms\Modules\Dashboard\Commands\LaracmsConfigure;
 use Grundmanis\Laracms\Modules\Dashboard\Facades\LocaleFacade;
 use Grundmanis\Laracms\Modules\Dashboard\LocalesGenerator;
