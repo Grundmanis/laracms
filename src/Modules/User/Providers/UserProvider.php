@@ -6,13 +6,13 @@ use Grundmanis\Laracms\Modules\User\Middleware\LaracmsRedirectIfAuthenticated;
 use Grundmanis\Laracms\Modules\User\Middleware\LaracmsRedirectIfNotAuthenticated;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Grundmanis\Laracms\Modules\Dashboard\Facades\MenuFacade;
 
 class UserProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
      *
+     * @param Router $router
      * @return void
      */
     public function boot(Router $router)
@@ -22,6 +22,10 @@ class UserProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/../laracms_user_routes.php');
         $router->aliasMiddleware('laracms.auth', LaracmsRedirectIfNotAuthenticated::class);
         $router->aliasMiddleware('laracms.guest', LaracmsRedirectIfAuthenticated::class);
+
+        $this->publishes([
+            __DIR__.'/../views/' => resource_path('views/laracms/users'),
+        ], 'laracms');
     }
 
     /**
@@ -31,19 +35,6 @@ class UserProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->addMenuRoutes();
+        //
     }
-
-    /**
-     *
-     */
-    private function addMenuRoutes()
-    {
-        $menu = [
-            'admin.menu.users' => 'laracms.users'
-        ];
-
-        MenuFacade::addMenu($menu);
-    }
-
 }

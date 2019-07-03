@@ -44,21 +44,12 @@ class LaracmsConfigure extends Command
      */
     public function handle()
     {
-
         $this->call('vendor:publish', [
             '--tag' => 'translatable'
         ]);
 
         $this->call('vendor:publish', [
             '--tag' => 'laracms'
-        ]);
-
-        $this->call('vendor:publish', [
-            '--tag' => 'laracms_pages'
-        ]);
-
-        $this->call('vendor:publish', [
-            '--tag' => 'assets'
         ]);
 
         $this->call('migrate');

@@ -1,7 +1,7 @@
 <?php
 
 Route::group([
-    'middleware' => 'web',
+    'middleware' => ['web', 'laracms.language'],
     'namespace'  => 'Grundmanis\Laracms\Modules\User\Controllers',
     'prefix'     => 'laracms'
 ], function () {

@@ -37,7 +37,7 @@
 </head>
 <body>
 <div class="wrapper">
-    <div class="sidebar" data-background-color="white" data-active-color="danger">
+    <div class="sidebar" data-background-color="black" data-active-color="info">
 
         <div class="sidebar-wrapper">
             <div class="logo">
@@ -47,31 +47,38 @@
             </div>
 
             <ul class="nav">
-                @foreach(MenuFacade::getMenu() as $menu => $link)
-                    @if (is_array($link))
-                        <li class="dropdown {{ activeRoute(array_first($link) . '*') ? 'active open' : '' }}">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false">
-                                {{ ucfirst($menu) }} <span class="caret"></span>
+                @foreach(config('laracms.menu') as $menuPoint)
+                    {{--@if (is_array($link))--}}
+                        {{--<li class="dropdown {{ activeRoute(array_first($link) . '*') ? 'active open' : '' }}">--}}
+                            {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"--}}
+                               {{--aria-haspopup="true" aria-expanded="false">--}}
+                                {{--{{ ucfirst($menu) }} <span class="caret"></span>--}}
+                            {{--</a>--}}
+                            {{--<ul class="dropdown-menu">--}}
+                                {{--@foreach($link as $subMenu => $subLink)--}}
+                                    {{--<li class="{{ activeRoute($subLink) }}">--}}
+                                        {{--<a href="{{ Route::has($subLink) ? route($subLink) : $subLink }}">--}}
+                                            {{--{{ ucfirst(__($subMenu)) }}--}}
+                                        {{--</a>--}}
+                                    {{--</li>--}}
+                                {{--@endforeach--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
+                    {{--@else--}}
+                        <li class="{{ activeRoute($menuPoint['url'] . '*') }}">
+                            <a href="{{ Route::has($menuPoint['url']) ? route($menuPoint['url']) : $menuPoint['url'] }}">
+                                {!! $menuPoint['icon'] !!}
+                                <p>{{ __($menuPoint['translation_key']) }}</p>
                             </a>
-                            <ul class="dropdown-menu">
-                                @foreach($link as $subMenu => $subLink)
-                                    <li class="{{ activeRoute($subLink) }}">
-                                        <a href="{{ Route::has($subLink) ? route($subLink) : $subLink }}">
-                                            {{ ucfirst(__($subMenu)) }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
                         </li>
-                    @else
-                        <li class="{{ activeRoute($link . '*') }}">
-                            <a href="{{ Route::has($link) ? route($link) : $link }}">
-                                {{ ucfirst(__($menu)) }}
-                            </a>
-                        </li>
-                    @endif
+                    {{--@endif--}}
                 @endforeach
+                <li class="active-pro">
+                    <a href="mailto:info@hightech.lv">
+                        <i class="ti-help"></i>
+                        <p>{{ __('laracms::support') }}</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -109,7 +116,12 @@
                         <a class="navbar-brand" href="#">{{ $page }}</a>
                     </div>
                 @endif
-                @include('laracms.dashboard::partials.topnav')
+
+                @if(view()->exists('laracms.dashboard.partials.topnav'))
+                    @include('laracms.dashboard.partials.topnav')
+                @else
+                    @include('laracms.dashboard::partials.topnav')
+                @endif
             </div>
         </nav>
 
@@ -118,6 +130,29 @@
                 @yield('content')
             </div>
         </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+
+                        <li>
+                            <a href="https://github.com/grundmanis/laracms">
+                                Wiki
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/grundmanis/laracms">
+                                Github
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright pull-right">
+                    © <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i>
+                </div>
+            </div>
+        </footer>
 
     </div>
 </div>
@@ -139,7 +174,7 @@
 <script src="{{ asset('laracms_assets/js/bootstrap-notify.js') }}"></script>
 
 <!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+{{--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>--}}
 
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <script src="{{ asset('laracms_assets/js/paper-dashboard.js') }}"></script>

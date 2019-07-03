@@ -1,16 +1,16 @@
-@extends('laracms.dashboard::layouts.app', ['page' => __('texts.laracms_users')])
+@extends('laracms.dashboard::layouts.app', ['page' => __('laracms::admin.laracms_users')])
 
 @section('content')
     <div class="form-group">
-        <a class="btn btn-success" href="{{ route('laracms.users.create') }}">{{ __('texts.create') }}</a>
+        <a class="btn btn-success" href="{{ route('laracms.users.create') }}">{{ __('laracms::admin.create') }}</a>
     </div>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>#</th>
-                <th>{{ __('texts.name') }}</th>
-                <th>{{ __('texts.email') }}</th>
+                <th>{{ __('laracms::admin.name') }}</th>
+                <th>{{ __('laracms::admin.email') }}</th>
                 <th></th>
             </tr>
             </thead>
@@ -21,10 +21,10 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
-                        <a href="{{ route('laracms.users.edit', $user->id) }}">{{ __('texts.edit') }}</a>
+                        <a href="{{ route('laracms.users.edit', $user->id) }}">{{ __('laracms::admin.edit') }}</a>
                         |
                         <a onclick="return confirm('Are you sure?')"
-                           href="{{ route('laracms.users.destroy', $user->id) }}">{{ __('texts.delete') }}</a>
+                           href="{{ route('laracms.users.destroy', $user->id) }}">{{ __('laracms::admin.delete') }}</a>
                     </td>
                 </tr>
             @endforeach

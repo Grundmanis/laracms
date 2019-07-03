@@ -1,4 +1,4 @@
-@extends('laracms.dashboard::layouts.auth')
+@extends(view()->exists('laracms.dashboard.layouts.auth') ? 'laracms.dashboard.layouts.auth' : 'laracms.dashboard::layouts.auth')
 
 @section('content')
     <div class="container">

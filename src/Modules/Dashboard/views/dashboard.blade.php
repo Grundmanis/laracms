@@ -1,29 +1,29 @@
-@extends('laracms.dashboard::layouts.app', ['page' => __('admin.menu.dashboard')] )
+@extends(view()->exists('laracms.dashboard.layouts.app') ? 'laracms.dashboard.layouts.app' : 'laracms.dashboard::layouts.app', ['page' => __('laracms::admin.menu.dashboard')] )
+
 @section('content')
     <div class="content">
-        <div class="container-fluid">
-            {{ __('admin.example_text') }}
-        </div>
+        @if(view()->exists('laracms.dashboard.content'))
+            @include('laracms.dashboard.content')
+        @else
+            @include('laracms.dashboard::content')
+        @endif
     </div>
 @endsection
 
 @section('scripts')
-    <!--  Charts Plugin -->
-    <script src="{{ asset('laracms_assets/js/chartist.min.js') }}"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
+        {{--$(document).ready(function(){--}}
 
-            demo.initChartist();
+            {{--$.notify({--}}
+                {{--icon: 'ti-gift',--}}
+                {{--message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."--}}
 
-//        $.notify({
-//            icon: 'ti-gift',
-//            message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
-//
-//        },{
-//            type: 'success',
-//            timer: 4000
-//        });
+            {{--},--}}
+                {{--{--}}
+                {{--type: 'success',--}}
+                {{--timer: 4000--}}
+            {{--});--}}
 
-        });
-    </script>
+        {{--});--}}
+    {{--</script>--}}
 @endsection

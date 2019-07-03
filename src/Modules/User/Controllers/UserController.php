@@ -30,7 +30,9 @@ class UserController extends Controller
     public function index()
     {
         $users = $this->user->paginate(15);
-        return view('laracms.user::index', compact('users'));
+        $view = view()->exists('laracms.users.index') ? 'laracms.users.index' : 'laracms.user::index';
+
+        return view($view, compact('users'));
     }
 
     /**
@@ -38,7 +40,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('laracms.user::form');
+        $view = view()->exists('laracms.users.form') ? 'laracms.users.form' : 'laracms.user::form';
+
+        return view($view);
     }
 
     /**
@@ -61,7 +65,9 @@ class UserController extends Controller
      */
     public function edit(LaracmsUser $user)
     {
-        return view('laracms.user::form', compact('user'));
+        $view = view()->exists('laracms.users.form') ? 'laracms.users.form' : 'laracms.user::form';
+
+        return view($view, compact('user'));
     }
 
     /**

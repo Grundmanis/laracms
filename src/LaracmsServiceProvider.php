@@ -2,11 +2,8 @@
 
 namespace Grundmanis\Laracms;
 
-use Grundmanis\Laracms\Modules\Dashboard\Facades\MenuFacade;
-use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class LaracmsServiceProvider extends ServiceProvider
 {
@@ -21,11 +18,9 @@ class LaracmsServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/assets/' => public_path('laracms_assets/'),
-        ], 'assets');
+        ], 'laracms');
 
         $this->registerModules();
-
-        LaravelLocalization::setLocale('ru');
     }
 
     /**
@@ -35,10 +30,7 @@ class LaracmsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('LaracmsMenu', LaracmsMenu::class);
-
-        $loader = AliasLoader::getInstance();
-        $loader->alias('MenuFacade', MenuFacade::class);
+        //
     }
 
     /**
