@@ -20,10 +20,10 @@ if (!function_exists('activeRoute')) {
     function activeRoute($url)
     {
         if (request()->routeIs($url)) {
-            return 'active';
+            return true;
         }
 
-        return '';
+        return false;
     }
 }
 

@@ -2,13 +2,10 @@
 
 @section('content')
     <div class="row">
-        <div class="col-sm-4 col-md-2">
-            <img width="210" src="https://materiell.com/wp-content/uploads/2015/03/doug_full1.png" alt="avatar">
-        </div>
         <div class="col-sm-8 col-md-4">
             <form method="POST">
                 {{ csrf_field() }}
-                <table class="table table-bordered">
+                <table class="table">
                     <tr>
                         <td>{{ __('laracms::admin.email') }}</td>
                         <td>

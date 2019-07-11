@@ -1,35 +1,24 @@
-<div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="ti-world"></i>
-                <p>{{ App::getLocale() }}</p>
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                @foreach($locales as $locale)
-                    <li><a href="{{ route('laracms.dashboard', ['lng' => $locale]) }}">{{ $locale }}</a></li>
-                @endforeach
-            </ul>
-        </li>
-        <li>
-            <a href="/" class="dropdown-toggle">
-                <i class="ti-file"></i>
-                <p>{{ __('laracms::admin.open_website') }}</p>
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('laracms.users.edit', Auth::guard('laracms')->user()->id) }}">
-                <i class="ti-user"></i>
-                <p>{{ __('laracms::admin.my_profile') }}</p>
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('laracms.logout') }}">
-                <i class="ti-power-off"></i>
-                <p>{{ __('laracms::admin.logout') }}</p>
-            </a>
-        </li>
-    </ul>
-
-</div>
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link btn-magnify" href="{{ env('APP_URL') }}">
+            <i class="nc-icon nc-layout-11"></i>
+            <p>
+                <span class="d-lg-none d-md-block">{{ __('laracms::admin.open_website') }}</span>
+            </p>
+        </a>
+    </li>
+    <li class="nav-item btn-rotate dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ App::getLocale() }}
+            {{--<i class="nc-icon nc-bell-55"></i>--}}
+            <p>
+                <span class="d-lg-none d-md-block">{{ App::getLocale() }}</span>
+            </p>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            @foreach($locales as $locale)
+                <a class="dropdown-item" href="{{ route('laracms.dashboard', ['lng' => $locale]) }}">{{ $locale }}</a>
+            @endforeach
+        </div>
+    </li>
+</ul>
