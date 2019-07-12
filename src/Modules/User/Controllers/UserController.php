@@ -54,6 +54,7 @@ class UserController extends Controller
             'name' => $request->input('name'),
             'password' => bcrypt($request->input('password')),
         ]);
+
         return redirect()->route('laracms.users')->with('status', 'User created!');
     }
 
@@ -86,7 +87,7 @@ class UserController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('laracms.dashboard')->with('status', 'Profile updated.');
+        return redirect()->route('laracms.dashboard')->with('status', 'User Profile updated.');
     }
 
     /**
@@ -96,6 +97,7 @@ class UserController extends Controller
     public function destroy(LaracmsUser $user)
     {
         $user->delete();
+
         return back()->with('status', 'User deleted!');
     }
 }
