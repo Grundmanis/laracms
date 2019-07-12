@@ -201,7 +201,7 @@ The above copyright notice and this permission notice shall be included in all c
 <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
 <script src="{{ asset('laracms_assets/js/plugins/bootstrap-switch.js') }}"></script>
 <!--  Plugin for Sweet Alert -->
-{{--<script src="{{ asset('laracms_assets/js/plugins/sweetalert2.min.js') }}"></script>--}}
+<script src="{{ asset('laracms_assets/js/plugins/sweetalert2.min.js') }}"></script>
 <!-- Forms Validations Plugin -->
 <script src="{{ asset('laracms_assets/js/plugins/jquery.validate.min.js') }}"></script>
 <!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
@@ -243,7 +243,23 @@ The above copyright notice and this permission notice shall be included in all c
             timer: 8000,
             placement: {
                 from: 'top',
-                align: 'center'
+                align: 'right'
+            }
+        });
+    </script>
+@endif
+@if (\Session::has('warning'))
+    <script>
+        $.notify({
+            icon: "nc-icon nc-bell-55",
+            message: "{{ \Session::get('warning') }}"
+
+        }, {
+            type: 'warning',
+            timer: 8000,
+            placement: {
+                from: 'top',
+                align: 'right'
             }
         });
     </script>
@@ -259,11 +275,30 @@ The above copyright notice and this permission notice shall be included in all c
             timer: 8000,
             placement: {
                 from: 'top',
-                align: 'center'
+                align: 'right'
             }
         });
     </script>
 @endif
+<script>
+    function confirmDelete(url) {
+        swal({
+            title: "{{ __('laracms::sure_to_delete') }}",
+            text: "{{ __('laracms::wont_be_able_to_return') }}",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            confirmButtonText: "{{ __('laracms::yes_delete') }}",
+            cancelButtonText: "{{ __('laracms::no') }}",
+            buttonsStyling: false
+        }).then(function(res) {
+            location.href = url;
+        }).catch(function(cat) {
+            //
+        });
+    }
+</script>
 @yield('scripts')
 </body>
 

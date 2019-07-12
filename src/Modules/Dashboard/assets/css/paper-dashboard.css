@@ -10744,7 +10744,7 @@ img {
     content: "";
     display: inline-block;
     position: absolute;
-    right: -16px;
+    right: -15px;
     opacity: 1;
     top: 7px;
     transition: opacity 150ms ease-in; }
@@ -10756,7 +10756,7 @@ img {
     content: "";
     display: inline-block;
     position: absolute;
-    right: -17px;
+    right: -15px;
     opacity: 1;
     top: 7px;
     transition: opacity 150ms ease-in; }

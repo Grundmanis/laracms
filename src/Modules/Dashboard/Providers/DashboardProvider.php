@@ -37,15 +37,12 @@ class DashboardProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../views/' => resource_path('views/laracms/dashboard'),
         ], 'laracms');
-
         $this->publishes([
             __DIR__.'/../assets/' => public_path('laracms_assets/'),
         ], 'laracms');
-
         $this->publishes([
             __DIR__.'/../translations' => resource_path('lang/vendor/laracms'),
         ], 'laracms');
-
         $this->publishes([
             __DIR__.'/../laracms.php' => config_path('laracms.php'),
         ], 'laracms');

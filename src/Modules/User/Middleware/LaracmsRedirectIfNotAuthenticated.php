@@ -27,7 +27,7 @@ class LaracmsRedirectIfNotAuthenticated
         if (!$user->updated_at && !request()->is('laracms/users/edit/' . $user->id)) {
             return redirect()
                 ->route('laracms.users.edit', $user->id)
-                ->with('status', 'Please, change default password on new one.');
+                ->with('warning', __('laracms::admin.change_default_password'));
         }
 
         return $next($request);

@@ -37,8 +37,8 @@
                                                 </a>
                                                 @if(Auth::guard('laracms')->user()->id != $user->id)
                                                     <a title="{{ __('laracms::admin.delete') }}"
-                                                       onclick="return confirm('{{ __('laracms::admin.sure_to_delete') }}')"
-                                                       href="{{ route('laracms.users.destroy', $user->id) }}" type="button"
+                                                       onclick="return confirmDelete('{{ route('laracms.users.destroy', $user->id) }}');"
+                                                       href="javascript:void(0);" type="button"
                                                        rel="tooltip" class="btn btn-danger btn-icon btn-sm ">
                                                         <i class="fa fa-times"></i>
                                                     </a>
