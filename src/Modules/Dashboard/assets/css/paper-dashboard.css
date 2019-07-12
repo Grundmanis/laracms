@@ -7311,7 +7311,7 @@ img {
     width: 100%; }
 
 .table-responsive {
-  overflow: scroll;
+  overflow: auto;
   padding-bottom: 10px; }
 
 #tables .table-responsive {

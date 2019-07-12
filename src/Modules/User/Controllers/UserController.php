@@ -5,8 +5,6 @@ namespace Grundmanis\Laracms\Modules\User\Controllers;
 use App\Http\Controllers\Controller;
 use Grundmanis\Laracms\Modules\User\Models\LaracmsUser;
 use Grundmanis\Laracms\Modules\User\Requests\UserRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -87,6 +85,7 @@ class UserController extends Controller
         }
 
         $user->update($data);
+
         return redirect()->route('laracms.dashboard')->with('status', 'Profile updated.');
     }
 

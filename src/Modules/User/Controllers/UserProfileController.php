@@ -44,6 +44,7 @@ class UserProfileController extends Controller
     {
         $this->user->name = $request->input('name');
         $this->user->save();
+
         return back()->with('status', 'Profile updated.');
     }
 }

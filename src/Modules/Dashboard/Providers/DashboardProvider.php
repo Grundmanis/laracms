@@ -21,6 +21,8 @@ class DashboardProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
+        require(__DIR__.'/../../../functions.php');
+
         if ($this->app->runningInConsole()) {
             $this->commands([
                 LaracmsConfigure::class,
@@ -34,6 +36,10 @@ class DashboardProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../views/' => resource_path('views/laracms/dashboard'),
+        ], 'laracms');
+
+        $this->publishes([
+            __DIR__.'/../assets/' => public_path('laracms_assets/'),
         ], 'laracms');
 
         $this->publishes([
@@ -55,7 +61,6 @@ class DashboardProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('Locale', LocalesGenerator::class);
-
         $loader = AliasLoader::getInstance();
         $loader->alias('LocaleAlias', LocaleFacade::class);
     }

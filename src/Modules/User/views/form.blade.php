@@ -1,38 +1,30 @@
-@extends('laracms.dashboard::layouts.app', ['page' => __('laracms::admin.profile')])
+@extends(view()->exists('laracms.dashboard.layouts.app') ? 'laracms.dashboard.layouts.app' : 'laracms.dashboard::layouts.app', ['page' => __('laracms::admin.laracms_users')] )
 
 @section('content')
-    <div class="row">
-        <div class="col-sm-8 col-md-4">
-            <form method="POST">
-                {{ csrf_field() }}
-                <table class="table">
-                    <tr>
-                        <td>{{ __('laracms::admin.email') }}</td>
-                        <td>
-                            <input type="text" name="email" value="{{ formValue($user ?? null, 'email') }}"
-                                   class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{{ __('laracms::admin.name') }}</td>
-                        <td>
-                            <input type="text" name="name" value="{{ formValue($user ?? null, 'name') }}"
-                                   class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{{ __('laracms::admin.password') }}</td>
-                        <td>
-                            <input type="password" name="password" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="text-right">
-                            <button class="btn btn-success">{{ __('laracms::admin.save') }}</button>
-                        </td>
-                    </tr>
-                </table>
-            </form>
+    <form method="POST">
+        {{ csrf_field() }}
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">{{ __('laracms::admin.laracms_users') }}</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="email">{{ __('laracms::admin.email') }}</label>
+                    <input id="email" type="text" name="email" value="{{ formValue($user ?? null, 'email') }}"
+                           class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="name">{{ __('laracms::admin.name') }}</label>
+                    <input id="name" type="text" name="name" value="{{ formValue($user ?? null, 'name') }}"
+                           class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">{{ __('laracms::admin.password') }}</label>
+                    <input id="password" type="password" name="password" value="{{ formValue($user ?? null, 'password') }}"
+                           class="form-control">
+                </div>
+            </div>
         </div>
-    </div>
+        <button type="submit" class="btn btn-primary">{{ __('laracms::admin.save') }}</button>
+    </form>
 @endsection
