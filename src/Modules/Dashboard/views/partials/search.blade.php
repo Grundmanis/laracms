@@ -1,10 +1,14 @@
 <form>
-    <div class="form-group row">
-        <div class="col-md-6">
-            <input class="form-control" placeholder="Search.." type="text" name="q" value="{{ request()->get('q') }}">
-        </div>
-        <div class="col-md-6">
-            <button type="submit" class="btn btn-primary">Search</button>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input class="form-control" placeholder="{{ __('laracms::admin.search') }}.." type="text" name="q" value="{{ request()->get('q') }}">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">{{ __('laracms::admin.search') }}</button>
+                </div>
+            </div>
         </div>
     </div>
 </form>

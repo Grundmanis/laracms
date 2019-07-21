@@ -1,4 +1,4 @@
-@extends(view()->exists('laracms.dashboard.layouts.app') ? 'laracms.dashboard.layouts.app' : 'laracms.dashboard::layouts.app', ['page' => __('laracms::admin.laracms_users')] )
+@extends(view()->exists('laracms.dashboard.layouts.app') ? 'laracms.dashboard.layouts.app' : 'laracms.dashboard::layouts.app', ['page' => __('laracms::admin.menu.users')] )
 
 @section('content')
     <div class="form-group">
@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">{{ __('laracms::admin.laracms_users') }}</h4>
+                        <h4 class="card-title">{{ __('laracms::admin.menu.users') }}</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

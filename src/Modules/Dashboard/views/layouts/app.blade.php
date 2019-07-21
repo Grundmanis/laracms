@@ -87,7 +87,7 @@ The above copyright notice and this permission notice shall be included in all c
             <ul class="nav">
                 @foreach(config('laracms.menu') as $k => $menuPoint)
                     @if (is_array($menuPoint['url']))
-                        <li>
+                        <li class="{{ activeRoute($menuPoint['url'][0]['url'] . '*') ? 'active' : '' }}">
                             <a data-toggle="collapse" href="#sub_{{ $k }}">
                                 <i class="nc-icon nc-book-bookmark"></i>
                                 <p>
@@ -95,7 +95,7 @@ The above copyright notice and this permission notice shall be included in all c
                                     <b class="caret"></b>
                                 </p>
                             </a>
-                            <div class="collapse " id="sub_{{ $k }}">
+                            <div class="collapse {{ activeRoute($menuPoint['url'][0]['url'] . '*') ? 'show' : '' }}" id="sub_{{ $k }}">
                                 <ul class="nav">
                                     @foreach($menuPoint['url'] as $subMenuPoint)
                                         <li class="{{ activeRoute($subMenuPoint['url'] . '*') ? 'active' : '' }}">

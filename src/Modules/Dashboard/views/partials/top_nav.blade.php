@@ -1,6 +1,6 @@
 <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link btn-magnify" href="{{ env('APP_URL') }}">
+        <a class="nav-link btn-magnify" target="_blank" href="{{ env('APP_URL') }}">
             <i class="nc-icon nc-layout-11"></i>
             <p>
                 <span class="d-lg-none d-md-block">{{ __('laracms::admin.open_website') }}</span>
