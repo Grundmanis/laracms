@@ -55,7 +55,7 @@ class UserController extends Controller
             'password' => bcrypt($request->input('password')),
         ]);
 
-        return redirect()->route('laracms.users')->with('status', 'User created!');
+        return redirect()->route('laracms.users')->with('status', __('laracms::admin.user_created'));
     }
 
     /**
@@ -87,7 +87,7 @@ class UserController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('laracms.dashboard')->with('status', 'User Profile updated.');
+        return redirect()->route('laracms.users')->with('status', __('laracms::admin.user_updated'));
     }
 
     /**
@@ -98,6 +98,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return back()->with('status', 'User deleted!');
+        return back()->with('status', __('laracms::admin.user_deleted'));
     }
 }
