@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:laracms_users,email',
+            'email' => 'required|email|unique:laracms_users,email, ' . Auth::guard('laracms')->user()->id,
             'password' => 'required'
         ];
     }
