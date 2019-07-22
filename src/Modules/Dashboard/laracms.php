@@ -62,7 +62,7 @@ return [
     | Default: "laracms"
     |
     */
-    'prefix' => env('LARACMS_PREFIX', 'laracms2'),
+    'prefix' => env('LARACMS_PREFIX', 'laracms'),
 
     /*
     |--------------------------------------------------------------------------

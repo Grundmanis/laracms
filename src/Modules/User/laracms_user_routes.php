@@ -3,7 +3,7 @@
 Route::group([
     'middleware' => ['web', 'laracms.language'],
     'namespace'  => 'Grundmanis\Laracms\Modules\User\Controllers',
-    'prefix'     => config('laracms.prefix', 'laracms'),
+    'prefix'     => config('laracms.prefix'),
     'domain'     => config('laracms.domain')
 ], function () {
 
