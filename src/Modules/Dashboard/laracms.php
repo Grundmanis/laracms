@@ -50,5 +50,27 @@ return [
 //                ],
 //            ]
 //        ],
-    ]
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | LaraCMS admin prefix
+    |--------------------------------------------------------------------------
+    |
+    | The LaraCMS base route
+    |
+    | Default: "laracms"
+    |
+    */
+    'prefix' => env('LARACMS_PREFIX', 'laracms2'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | LaraCMS admin domain
+    |--------------------------------------------------------------------------
+    |
+    | If specified, then LaraCMS admin panel will be accessible only from it
+    |
+    */
+    'domain' => env('LARACMS_DOMAIN', ''),
 ];
