@@ -44,12 +44,12 @@ The above copyright notice and this permission notice shall be included in all c
           Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
       -->
         <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+            <a href="/" class="simple-text logo-mini">
                 <div class="logo-image-small">
                     <img src="{{ asset('laracms_assets/img/ht.png') }}" alt="">
                 </div>
             </a>
-            <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+            <a href="/" class="simple-text logo-normal">
                 Laracms
             </a>
         </div>
