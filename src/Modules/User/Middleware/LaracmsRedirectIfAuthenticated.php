@@ -18,7 +18,7 @@ class LaracmsRedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard('laracms')->check()) {
-            return redirect('/laracms');
+            return redirect(config('laracms.prefix', '/'));
         }
         return $next($request);
     }

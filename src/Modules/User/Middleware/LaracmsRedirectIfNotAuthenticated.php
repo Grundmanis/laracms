@@ -19,12 +19,12 @@ class LaracmsRedirectIfNotAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (!Auth::guard('laracms')->check()) {
-            return redirect('/laracms/login');
+            return redirect(config('laracms.prefix', '/') . '/login');
         }
 
         $user = Auth::guard('laracms')->user();
 
-        if (!$user->updated_at && !request()->is('laracms/users/edit/' . $user->id)) {
+        if (!$user->updated_at && !request()->is(config('laracms.prefix', '/') . '/users/edit/' . $user->id)) {
             return redirect()
                 ->route('laracms.users.edit', $user->id)
                 ->with('warning', __('laracms::admin.change_default_password'));

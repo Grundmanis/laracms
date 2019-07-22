@@ -27,7 +27,15 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/laracms/';
+    protected $redirectTo = '/';
+
+    /**
+     * LoginController constructor.
+     */
+    public function __construct()
+    {
+        $this->redirectTo = config('laracms.prefix') ?? '/';
+    }
 
     /**
      * Show the application's login form.
