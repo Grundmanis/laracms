@@ -5,7 +5,7 @@ namespace Grundmanis\Laracms\Modules\User\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class UserRequest extends FormRequest
+class UserUpdateRequest extends FormRequest
 {
 
     /**
@@ -26,7 +26,6 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:laracms_users,email, ' . Auth::guard('laracms')->user()->id,
             'password' => 'required'
         ];
     }

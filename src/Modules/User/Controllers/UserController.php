@@ -5,6 +5,8 @@ namespace Grundmanis\Laracms\Modules\User\Controllers;
 use App\Http\Controllers\Controller;
 use Grundmanis\Laracms\Modules\User\Models\LaracmsUser;
 use Grundmanis\Laracms\Modules\User\Requests\UserRequest;
+use Grundmanis\Laracms\Modules\User\Requests\UserStoreRequest;
+use Grundmanis\Laracms\Modules\User\Requests\UserUpdateRequest;
 
 class UserController extends Controller
 {
@@ -44,10 +46,10 @@ class UserController extends Controller
     }
 
     /**
-     * @param UserRequest $request
+     * @param UserStoreRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(UserRequest $request)
+    public function store(UserStoreRequest $request)
     {
         $this->user->create([
             'email' => $request->input('email'),
@@ -65,21 +67,21 @@ class UserController extends Controller
     public function edit(LaracmsUser $user)
     {
         $view = view()->exists('laracms.users.form') ? 'laracms.users.form' : 'laracms.user::form';
+        $edit = true;
 
-        return view($view, compact('user'));
+        return view($view, compact('user', 'edit'));
     }
 
     /**
      * @param LaracmsUser $user
-     * @param UserRequest $request
+     * @param UserUpdateRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(LaracmsUser $user, UserRequest $request)
+    public function update(LaracmsUser $user, UserUpdateRequest $request)
     {
         $data = [
-            'email' => $request->input('email'),
             'name' => $request->input('name'),
-            ];
+        ];
 
         if ($request->input('password')) {
             $data['password'] = bcrypt($request->input('password'));
