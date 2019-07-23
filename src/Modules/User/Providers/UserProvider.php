@@ -25,7 +25,7 @@ class UserProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../views/' => resource_path('views/laracms/users'),
-        ], 'laracms');
+        ], 'laracms_views');
     }
 
     /**
