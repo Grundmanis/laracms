@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use Grundmanis\Laracms\Modules\User\Models\LaracmsUser;
 use Grundmanis\Laracms\Modules\User\Requests\UserStoreRequest;
 use Grundmanis\Laracms\Modules\User\Requests\UserUpdateRequest;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 
 class LaracmsUserController extends Controller
 {
@@ -52,11 +50,17 @@ class LaracmsUserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-        $this->user->create([
-            'email' => $request->input('email'),
-            'name' => $request->input('name'),
+        $data = [
+            'email'    => $request->input('email'),
+            'name'     => $request->input('name'),
             'password' => bcrypt($request->input('password')),
-        ]);
+        ];
+
+        if ($request->avatar) {
+            $data['avatar'] = $this->user->uploadAvatar(uniqid(), $request);
+        }
+
+        $this->user->create($data);
 
         return redirect()->route('laracms.users')->with('status', __('laracms::admin.user_created'));
     }
@@ -91,28 +95,8 @@ class LaracmsUserController extends Controller
 
         // Avatar upload
         if ($request->avatar) {
-
-            $folderName = 'laracms_avatars';
-            $public = 'public';
-            $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
-
-            try {
-                $request
-                    ->file('avatar')
-                    ->storeAs($public . '/' . $folderName, $avatarName);
-            } catch (\Exception $exception) {
-                Log::info($exception->getMessage());
-            }
-
-            $data['avatar'] = $folderName . '/' . $avatarName;
-
-            if ($user->avatar && Storage::exists($public . '/' . $user->avatar)) {
-                try {
-                    Storage::delete($public . '/' . $user->avatar);
-                } catch (\Exception $exception) {
-                    Log::info($exception->getMessage());
-                }
-            }
+            $data['avatar'] = $this->user->uploadAvatar($user->email, $request);
+            $this->user->deleteAvatar();
         }
 
         $user->update($data);
@@ -126,6 +110,7 @@ class LaracmsUserController extends Controller
      */
     public function destroy(LaracmsUser $user)
     {
+        $this->user->deleteAvatar();
         $user->delete();
 
         return back()->with('status', __('laracms::admin.user_deleted'));

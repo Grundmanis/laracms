@@ -27,7 +27,9 @@ class UserStoreRequest extends FormRequest
     {
         return [
             'email' => 'required|email|unique:laracms_users,email',
-            'password' => 'required'
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|dimensions:min_width=100,min_height=100,max_width=1500,max_height=1500',
+            'password' => 'required|same:password_confirmation',
+            'password_confirmation' => 'required',
         ];
     }
 }

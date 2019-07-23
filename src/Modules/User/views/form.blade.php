@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                         <div class="fileinput-new thumbnail img-circle">
-                            <img src="{{ asset('laracms_assets/img/placeholder.jpg') }}" alt="avatar">
+                            <img src="{{ isset($user) && $user->avatar ? asset('storage/' . $user->avatar) : asset('laracms_assets/img/placeholder.jpg') }}" alt="avatar">
                         </div>
                         <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
                         <div>
