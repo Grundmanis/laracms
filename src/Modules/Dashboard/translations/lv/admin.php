@@ -33,4 +33,10 @@ return [
     'login' => 'Ielogoties',
     'remember_me' => 'Atcerēties mani',
     'open_website' => 'Atvert lapu',
+    'add_photo' => 'Pielikt foto',
+    'change' => 'Mainīt',
+    'password_confirmation' => 'Apstiprināt paroli',
+    'user_deleted' => 'Lietotājs izdzēsts!',
+    'user_updated' => 'Lietotājs izmainīts!',
+    'user_created' => 'Lietotājs izveidots!'
 ];

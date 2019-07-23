@@ -33,4 +33,10 @@ return [
     'login' => 'Войти',
     'remember_me' => 'Запомнить меня',
     'open_website' => 'Открыть сайт',
+    'add_photo' => 'Добавить фото',
+    'change' => 'Изменить',
+    'password_confirmation' => 'Подтвердить пароль',
+    'user_deleted' => 'Пользователь удален!',
+    'user_updated' => 'Пользователь обновлен!',
+    'user_created' => 'Пользователь создан!'
 ];

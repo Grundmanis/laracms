@@ -33,4 +33,10 @@ return [
     'login' => 'Login',
     'remember_me' => 'Remember me',
     'open_website' => 'Open website',
+    'add_photo' => 'Add photo',
+    'change' => 'Change',
+    'password_confirmation' => 'Confirm password',
+    'user_deleted' => 'User deleted!',
+    'user_updated' => 'User updated!',
+    'user_created' => 'User created!'
 ];
