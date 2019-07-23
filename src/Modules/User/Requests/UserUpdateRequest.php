@@ -26,7 +26,8 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'password' => 'required'
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|dimensions:min_width=100,min_height=100,max_width=1500,max_height=1500',
+            'password' => 'required_with:password_confirmation|same:password_confirmation',
         ];
     }
 }

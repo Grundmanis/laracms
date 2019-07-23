@@ -54,6 +54,8 @@ class LaracmsConfigure extends Command
 
         $this->call('migrate');
 
+        $this->call('storage:link');
+
         if (!$this->user->where('email', 'admin@laracms.com')->first()) {
             $this->call('db:seed', [
                 '--class' => 'Grundmanis\\Laracms\\Modules\\User\\LaracmsUserSeeder'

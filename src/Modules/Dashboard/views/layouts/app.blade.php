@@ -56,7 +56,7 @@ The above copyright notice and this permission notice shall be included in all c
         <div class="sidebar-wrapper">
             <div class="user">
                 <div class="photo">
-                    <img src="{{ asset('laracms_assets/img/faces/kaci-baum-2.jpg') }}"/>
+                    <img src="{{ Auth::guard('laracms')->user()->avatar ? asset('storage/' . Auth::guard('laracms')->user()->avatar) : asset('laracms_assets/img/placeholder.jpg')}}"/>
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
