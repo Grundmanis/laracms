@@ -87,7 +87,7 @@ The above copyright notice and this permission notice shall be included in all c
             <ul class="nav">
                 @foreach(config('laracms.menu') as $k => $menuPoint)
                     @if (is_array($menuPoint['url']))
-                        <li class="{{ activeRoute($menuPoint['url'][0]['url'] . '*') ? 'active' : '' }}">
+                        <li class="{{ activeRoute($menuPoint['url']) ? 'active' : '' }}">
                             <a data-toggle="collapse" href="#sub_{{ $k }}">
                                 <i class="nc-icon nc-book-bookmark"></i>
                                 <p>
@@ -95,7 +95,7 @@ The above copyright notice and this permission notice shall be included in all c
                                     <b class="caret"></b>
                                 </p>
                             </a>
-                            <div class="collapse {{ activeRoute($menuPoint['url'][0]['url'] . '*') ? 'show' : '' }}" id="sub_{{ $k }}">
+                            <div class="collapse {{ activeRoute($menuPoint['url']) ? 'show' : '' }}" id="sub_{{ $k }}">
                                 <ul class="nav">
                                     @foreach($menuPoint['url'] as $subMenuPoint)
                                         <li class="{{ activeRoute($subMenuPoint['url'] . '*') ? 'active' : '' }}">
@@ -283,14 +283,14 @@ The above copyright notice and this permission notice shall be included in all c
 <script>
     function confirmDelete(url) {
         swal({
-            title: "{{ __('laracms::sure_to_delete') }}",
-            text: "{{ __('laracms::wont_be_able_to_return') }}",
+            title: "{{ __('laracms::admin.sure_to_delete') }}",
+            text: "{{ __('laracms::admin.wont_be_able_to_return') }}",
             type: 'warning',
             showCancelButton: true,
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
-            confirmButtonText: "{{ __('laracms::yes_delete') }}",
-            cancelButtonText: "{{ __('laracms::no') }}",
+            confirmButtonText: "{{ __('laracms::admin.yes_delete') }}",
+            cancelButtonText: "{{ __('laracms::admin.no') }}",
             buttonsStyling: false
         }).then(function(res) {
             location.href = url;

@@ -19,7 +19,14 @@ if (!function_exists('formValue')) {
 if (!function_exists('activeRoute')) {
     function activeRoute($url)
     {
-        if (request()->routeIs($url)) {
+        if (is_array($url)) {
+            foreach ($url as $route) {
+                if (request()->routeIs($route['url'] . '*')) {
+                    return true;
+                }
+            }
+        }
+        else if (request()->routeIs($url)) {
             return true;
         }
 
