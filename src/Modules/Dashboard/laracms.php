@@ -73,4 +73,14 @@ return [
     |
     */
     'domain' => env('LARACMS_DOMAIN', ''),
+
+    /*
+    |--------------------------------------------------------------------------
+    | LaraCMS per page num
+    |--------------------------------------------------------------------------
+    |
+    | How much records to show on page
+    |
+    */
+    'per_page' => env('LARACMS_PER_PAGE', 15)
 ];
