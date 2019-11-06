@@ -298,6 +298,21 @@ The above copyright notice and this permission notice shall be included in all c
             //
         });
     }
+
+    function validateTabs(e) {
+        var form = $(e.target).closest('form')[0];
+        if (!form.checkValidity()) {
+            $('#my-tab-content input, #my-tab-content textarea').each(function(){ // каждый инпут и тексареа и тоьлко ТАБАХ
+                if ($(this).is(':invalid'))
+                {
+                    var invalidTabId = $(this).closest('.tab-pane').attr('id'); // берем ид родителя по классу
+                    $('.tab-pane, .nav-link').removeClass('active');
+                    $('.nav-link[href="#'+ invalidTabId +'"]').addClass('active');
+                    $('.tab-pane[id="' + invalidTabId + '"]').addClass('active');
+                }
+            });
+        }
+    }
 </script>
 @yield('scripts')
 </body>
