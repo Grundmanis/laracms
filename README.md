@@ -1,5 +1,12 @@
-# Lara CMS - Laravel Content Management System
+# LaraCMS - Laravel Content Management System
 This is the Content Management System on Laravel (tested - 5.5 / 5.6), made for fun.
+
+## TODO
+- change translation plugin
+- fix the pages plugin (or update readme), routes are not working
+- add translated routes to readme (content function is not working properly)
+- change screenshot in readme to updated template 
+
 
 ![laravel](https://user-images.githubusercontent.com/6103997/35647123-3fa8b218-06da-11e8-9cf8-6e7ddd7296d6.png)
 ## How to use
